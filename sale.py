@@ -24,26 +24,65 @@ radio_1 = Radiobutton(window, text="Weekly ", variable=marnel, value="AS")
 radio_2 = Radiobutton(window, text="Club 49", variable=marnel, value="C49")
 radio_3 = Radiobutton(window, text="Last Minute", variable=marnel, value="LastMinute")
 
+weekly_label = Label(window, text="Normal Deals. Can be used for larger sales.", width=40)
+club_49_label = Label(window, text="Specific to Club 49 fares.", width=40)
+last_minute_label = Label(window, text="For deals that have travel dates coming up.", width=40)
+
+
 exception_codes_label1 = Label(window, text="EXCEPTIONS:", width=10)
 exception_codes_label2 = Label(window, text="Codes", width=8)
 exception_codes_label3 = Label(window, text="Days of Travel", width=25)
+exception_codes_label4 = Label(window, text="startdate", width=8)
+exception_codes_label5 = Label(window, text="enddate", width=8)
+
+example_label = Label(window, text="Format Examples:", width=10)
+example_codes_label = Label(window, text="MCOSFO", width=8)
+example_days_label = Label(window, text="Thursday through Monday", width=25)
+example_start_label = Label(window, text="2018-09-22", width=8)
+example_end_label = Label(window, text="2018-09-30", width=8)
+
+
+
+example_label.configure(fg="gray")
+example_codes_label.configure(fg="gray")
+example_days_label.configure(fg="gray")
+example_start_label.configure(fg="gray")
+example_end_label.configure(fg="gray")
+
+
+weekly_label.configure(fg="gray")
+club_49_label.configure(fg="gray")
+last_minute_label.configure(fg="gray")
 
 
 exception_codes1 = Entry(window, width=8)
 exception_days1 = Entry(window, width=25)
+exception_start1 = Entry(window, width=8)
+exception_end1 = Entry(window, width=8)
 
 exception_codes2 = Entry(window, width=8)
 exception_days2 = Entry(window, width=25)
+exception_start2 = Entry(window, width=8)
+exception_end2 = Entry(window, width=8)
+
 
 exception_codes3 = Entry(window, width=8)
 exception_days3 = Entry(window, width=25)
+exception_start3 = Entry(window, width=8)
+exception_end3 = Entry(window, width=8)
 
 exception_codes4 = Entry(window, width=8)
 exception_days4 = Entry(window, width=25)
+exception_start4 = Entry(window, width=8)
+exception_end4 = Entry(window, width=8)
 
 
 runBtn = Button (window, padx=10, pady=20)
 resBtn = Button (window, padx=20, pady=20)
+
+
+resBtn.configure(fg="red",bg="red")
+runBtn.configure(fg="green",bg="green")
 
 radio_1.select()
 
@@ -56,23 +95,48 @@ radio_1.grid(row=4, column=1, columnspan = 1)
 radio_2.grid(row=5, column=1, columnspan = 1)
 radio_3.grid(row=6, column=1, columnspan = 1)
 
+weekly_label.grid(row=4, column=2, columnspan = 2)
+club_49_label.grid(row=5, column=2, columnspan = 2)
+last_minute_label.grid(row=6, column=2, columnspan = 2)
+
+
 
 exception_codes_label1.grid(row=9, column=1)
 exception_codes_label2.grid(row=7, column=2)
 exception_codes_label3.grid(row=7, column=3)
+exception_codes_label4.grid(row=7, column=4)
+exception_codes_label5.grid(row=7, column=5)
 
 
-exception_codes1.grid(row=8, column=2)
-exception_days1.grid(row=8, column=3)
-exception_codes2.grid(row=9, column=2)
-exception_days2.grid(row=9, column=3)
-exception_codes3.grid(row=10, column=2)
-exception_days3.grid(row=10, column=3)
-exception_codes4.grid(row=11, column=2)
-exception_days4.grid(row=11, column=3)
+example_label.grid(row=8, column=1)
+example_codes_label.grid(row=8, column=2)
+example_days_label.grid(row=8, column=3)
+example_start_label.grid(row=8, column=4)
+example_end_label.grid(row=8, column=5)
 
 
-runBtn.grid(row=13, column=2, columnspan = 1)
+exception_codes1.grid(row=9, column=2)
+exception_days1.grid(row=9, column=3)
+exception_start1.grid(row=9, column=4)
+exception_end1.grid(row=9, column=5)
+
+exception_codes2.grid(row=10, column=2)
+exception_days2.grid(row=10, column=3)
+exception_start2.grid(row=10, column=4)
+exception_end2.grid(row=10, column=5)
+
+exception_codes3.grid(row=11, column=2)
+exception_days3.grid(row=11, column=3)
+exception_start3.grid(row=11, column=4)
+exception_end3.grid(row=11, column=5)
+
+exception_codes4.grid(row=12, column=2)
+exception_days4.grid(row=12, column=3)
+exception_start4.grid(row=12, column=4)
+exception_end4.grid(row=12, column=5)
+
+
+runBtn.grid(row=14, column=2, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
 
 
@@ -510,6 +574,8 @@ def automate() :
         
         
     
+
+
     #Get all Row of Fares depending on what airline and if Hawaii or International Fares
     def getClub49Fares(airline_type, upper_or_lower):
         alaska_codes = ["ADK","ANC","BRW","BET","CDV","DLG","DUT","FAI","GST","JNU","KTN","AKN","ADQ","OTZ","OME","PSG","SCC","SIT","WRG","YAK"]
@@ -737,7 +803,7 @@ def automate() :
 
 
 
-    def exceptionDealSet(which_rows, advance_purchase, origin_code, destination_code, travel_valid):
+    def exceptionDealSet(which_rows, advance_purchase, origin_code, destination_code, travel_valid, travel_start, travel_end):
         dealset = ET.SubElement(root, "DealSet")
         dealset.attrib['from']= str(parseDates(getValueToTheRightOfString("Sale Start Date:")))+'T00:00:01'
         dealset.attrib['to']= str(parseDates(getValueToTheRightOfString("Purchase By:")))+'T23:59:59'
@@ -749,11 +815,21 @@ def automate() :
         dealinfo.attrib['code']=makecode+'_SALE_AS-'+str(origin_code)+str(destination_code)
         
         traveldates = ET.SubElement(dealinfo, "TravelDates")
-        traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
-        traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Others")))+'T23:59:59'
+
+
+        if len(travel_start) > 0:
+            traveldates.attrib['startdate']= str(travel_start)+'T00:00:01'  
+        else:
+            traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+
+
+        if len(travel_end) > 0:
+            traveldates.attrib['enddate']= str(travel_end)+'T23:59:59'
+        else:
+            traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Others")))+'T23:59:59'
+
 
         dealtitle = ET.SubElement(dealinfo, "DealTitle")
-        
         dealdescription = ET.SubElement(dealinfo, "DealDescrip").text = "<![CDATA[Purchase by "+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+".]]>"
 
         terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel from '+str(m(origin_code))+'('+str(origin_code)+') to '+str(m(destination_code))+'('+str(destination_code)+')'+' is valid '+str(travel_valid)+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
@@ -917,6 +993,17 @@ def automate() :
             print exception_codes1.get() + exception_days1.get()
             total_exceptions_list = []
             if len(exception_codes1.get()) > 0:
+
+                if len(exception_start1.get()) > 0:
+                    travel_start = exception_start1.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end1.get()) > 0:
+                    travel_end = exception_end1.get()
+                else:
+                    travel_end = ''
+
                 ex_code_1 =  str(exception_codes1.get()).strip()
                 ex_code_1_origin = ex_code_1[0]+ex_code_1[1]+ex_code_1[2]
                 ex_code_1_destination = ex_code_1[3]+ex_code_1[4]+ex_code_1[5]
@@ -929,9 +1016,20 @@ def automate() :
                 print "CLOSE IN EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
                 print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
                 serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days,travel_start,travel_end)
 
             if len(exception_codes2.get()) > 0:
+
+                if len(exception_start2.get()) > 0:
+                    travel_start = exception_start2.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end2.get()) > 0:
+                    travel_end = exception_end2.get()
+                else:
+                    travel_end = ''
+
                 ex_code_2 =  str(exception_codes2.get()).strip()
                 ex_code_2_origin = ex_code_2[0]+ex_code_2[1]+ex_code_2[2]
                 ex_code_2_destination = ex_code_2[3]+ex_code_2[4]+ex_code_2[5]
@@ -944,9 +1042,20 @@ def automate() :
                 print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
                 print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
                 serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days,travel_start,travel_end)
 
             if len(exception_codes3.get()) > 0:
+
+                if len(exception_start3.get()) > 0:
+                    travel_start = exception_start3.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end3.get()) > 0:
+                    travel_end = exception_end3.get()
+                else:
+                    travel_end = ''
+
                 ex_code_3 =  str(exception_codes3.get()).strip()
                 ex_code_3_origin = ex_code_3[0]+ex_code_3[1]+ex_code_3[2]
                 ex_code_3_destination = ex_code_3[3]+ex_code_3[4]+ex_code_3[5]
@@ -959,10 +1068,21 @@ def automate() :
                 print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
                 print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
                 serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end)
 
 
             if len(exception_codes4.get()) > 0:
+
+                if len(exception_start4.get()) > 0:
+                    travel_start = exception_start4.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end4.get()) > 0:
+                    travel_end = exception_end4.get()
+                else:
+                    travel_end = ''
+
                 ex_code_4 =  str(exception_codes4.get()).strip()
                 ex_code_4_origin = ex_code_4[0]+ex_code_4[1]+ex_code_4[2]
                 ex_code_4_destination = ex_code_4[3]+ex_code_4[4]+ex_code_4[5]
@@ -975,7 +1095,7 @@ def automate() :
                 print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
                 print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
                 serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end)
         else:
             total_exceptions_list = []
 
@@ -997,6 +1117,17 @@ def automate() :
             print exception_codes1.get() + exception_days1.get()
             total_exceptions_list = []
             if len(exception_codes1.get()) > 0:
+
+                if len(exception_start1.get()) > 0:
+                    travel_start = exception_start1.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end1.get()) > 0:
+                    travel_end = exception_end1.get()
+                else:
+                    travel_end = ''
+
                 ex_code_1 =  str(exception_codes1.get()).strip()
                 ex_code_1_origin = ex_code_1[0]+ex_code_1[1]+ex_code_1[2]
                 ex_code_1_destination = ex_code_1[3]+ex_code_1[4]+ex_code_1[5]
@@ -1009,9 +1140,20 @@ def automate() :
                 print "EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
                 print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
                 serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days,travel_start,travel_end)
 
             if len(exception_codes2.get()) > 0:
+
+                if len(exception_start2.get()) > 0:
+                    travel_start = exception_start2.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end2.get()) > 0:
+                    travel_end = exception_end2.get()
+                else:
+                    travel_end = ''
+
                 ex_code_2 =  str(exception_codes2.get()).strip()
                 ex_code_2_origin = ex_code_2[0]+ex_code_2[1]+ex_code_2[2]
                 ex_code_2_destination = ex_code_2[3]+ex_code_2[4]+ex_code_2[5]
@@ -1024,9 +1166,19 @@ def automate() :
                 print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
                 print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
                 serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days,travel_start,travel_end)
 
             if len(exception_codes3.get()) > 0:
+                if len(exception_start3.get()) > 0:
+                    travel_start = exception_start3.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end3.get()) > 0:
+                    travel_end = exception_end3.get()
+                else:
+                    travel_end = ''
+
                 ex_code_3 =  str(exception_codes3.get()).strip()
                 ex_code_3_origin = ex_code_3[0]+ex_code_3[1]+ex_code_3[2]
                 ex_code_3_destination = ex_code_3[3]+ex_code_3[4]+ex_code_3[5]
@@ -1039,10 +1191,20 @@ def automate() :
                 print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
                 print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
                 serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end)
 
 
             if len(exception_codes4.get()) > 0:
+                if len(exception_start4.get()) > 0:
+                    travel_start = exception_start4.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end4.get()) > 0:
+                    travel_end = exception_end4.get()
+                else:
+                    travel_end = ''
+
                 ex_code_4 =  str(exception_codes4.get()).strip()
                 ex_code_4_origin = ex_code_4[0]+ex_code_4[1]+ex_code_4[2]
                 ex_code_4_destination = ex_code_4[3]+ex_code_4[4]+ex_code_4[5]
@@ -1055,7 +1217,7 @@ def automate() :
                 print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
                 print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
                 serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
-                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end)
         else:
             total_exceptions_list = []
 
