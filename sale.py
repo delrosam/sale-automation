@@ -22,6 +22,7 @@ marnel = StringVar()
 
 radio_1 = Radiobutton(window, text="Weekly ", variable=marnel, value="AS")
 radio_2 = Radiobutton(window, text="Club 49", variable=marnel, value="C49")
+radio_3 = Radiobutton(window, text="Last Minute", variable=marnel, value="LastMinute")
 
 exception_codes_label1 = Label(window, text="EXCEPTIONS:", width=10)
 exception_codes_label2 = Label(window, text="Codes", width=8)
@@ -53,23 +54,25 @@ fileBtn.grid(row=3, column=2, columnspan = 1)
 
 radio_1.grid(row=4, column=1, columnspan = 1)
 radio_2.grid(row=5, column=1, columnspan = 1)
+radio_3.grid(row=6, column=1, columnspan = 1)
 
 
-exception_codes_label1.grid(row=8, column=1)
-exception_codes_label2.grid(row=6, column=2)
-exception_codes_label3.grid(row=6, column=3)
-
-exception_codes1.grid(row=7, column=2)
-exception_days1.grid(row=7, column=3)
-exception_codes2.grid(row=8, column=2)
-exception_days2.grid(row=8, column=3)
-exception_codes3.grid(row=9, column=2)
-exception_days3.grid(row=9, column=3)
-exception_codes4.grid(row=10, column=2)
-exception_days4.grid(row=10, column=3)
+exception_codes_label1.grid(row=9, column=1)
+exception_codes_label2.grid(row=7, column=2)
+exception_codes_label3.grid(row=7, column=3)
 
 
-runBtn.grid(row=12, column=2, columnspan = 1)
+exception_codes1.grid(row=8, column=2)
+exception_days1.grid(row=8, column=3)
+exception_codes2.grid(row=9, column=2)
+exception_days2.grid(row=9, column=3)
+exception_codes3.grid(row=10, column=2)
+exception_days3.grid(row=10, column=3)
+exception_codes4.grid(row=11, column=2)
+exception_days4.grid(row=11, column=3)
+
+
+runBtn.grid(row=13, column=2, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
 
 
@@ -547,6 +550,18 @@ def automate() :
 
 
 
+    def lastMinuteRows(airline_type, total_exceptions_list):
+        last_minute_list = []
+        for col in range(5,7):
+            for row in range(1, sheet.nrows):
+                if sheet.cell_value(row, 5) == airline_type:
+                    last_minute_list.append(row)
+                else:
+                    last_minute_fares = last_minute_list
+                    continue
+            last_minute_fares = removeDuplicates(last_minute_fares, total_exceptions_list)
+            return last_minute_fares
+
 
     def sortkeypicker(keynames):
         negate = set()
@@ -765,19 +780,62 @@ def automate() :
 
 
 
+    #CREATE ALASKA DEALSETS
+    def lastminuteDealSet(which_rows, advance_purchase, upper_or_lower,):
+        
+        dealset = ET.SubElement(root, "DealSet")
+        dealset.attrib['from']= str(parseDates(getValueToTheRightOfString("Sale Start Date:")))+'T00:00:01'
+        dealset.attrib['to']= str(parseDates(getValueToTheRightOfString("Purchase By:")))+'T23:59:59'
+
+
+        dealinfo = ET.SubElement(dealset, "DealInfo")
+        dealinfo.attrib['url']=''
+        makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
+
+        dealinfo.attrib['code']=makecode+'_LAST-MINUTE'
+
+        traveldates = ET.SubElement(dealinfo, "TravelDates")
+        traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+        traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Others")))+'T23:59:59'
+
+        dealtitle = ET.SubElement(dealinfo, "DealTitle")
+        
+        dealdescription = ET.SubElement(dealinfo, "DealDescrip").text = "<![CDATA[Purchase by "+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+".]]>"
+
+        blackout_dates = str(getAvailability("Blackouts:"))
+        day_time = str(getValueToTheRightOfString("Day/Time Availability:").lower())
+
+        if upper_or_lower == 'lastminute':
+            if len(blackout_dates) > 0:
+                terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel is valid '+day_time+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Blackout dates are from '+blackout_dates+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+            else:
+                terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel is valid '+day_time+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+        fares = ET.SubElement(dealset, "Fares")
+
+        #This for loop will create each Row and Cell of XML for each item/dictionary in the list
+        #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
+        for a in pullFaresAndSaveInList(which_rows):
+            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+            row = ET.SubElement(fares, "Row") #showAsDefault="true"
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['oCode']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['oCity']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['dCode']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['dCity']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = str(a['fare'])
+
+        return dealset
     
 
     #Books and Sheets
     book = xlrd.open_workbook(window.fileName)
     sheet_one = book.sheet_by_index(0)
     sheet = book.sheet_by_index(3)
-
-
-
-
-
-    
-
 
 
 
@@ -848,6 +906,87 @@ def automate() :
             print getClub49Fares("C9", 'lower')
             genericClub49DealSet(getClub49Fares("C9", 'lower'),pass_AdvancePurchase,pass_LowerStartDate,pass_LowerEndDate,"lower",calendar_start,calendar_end)
             #tree.write("\\\\seavvfile1\\Market_SAIntMktg\\_Offers\\5. In Work\\AK_Weekly Sales\\temp\\temp-xml.xml")
+
+
+
+
+    #CLOSE IN FARES HANDLER
+    if(marnel.get() == 'LastMinute'):
+        #SERVICE EXCEPTION HANDLER
+        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0:
+            print exception_codes1.get() + exception_days1.get()
+            total_exceptions_list = []
+            if len(exception_codes1.get()) > 0:
+                ex_code_1 =  str(exception_codes1.get()).strip()
+                ex_code_1_origin = ex_code_1[0]+ex_code_1[1]+ex_code_1[2]
+                ex_code_1_destination = ex_code_1[3]+ex_code_1[4]+ex_code_1[5]
+                ex_code_1_days = str(exception_days1.get())
+       
+                total_exceptions_1 = serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                total_exceptions_list.append(total_exceptions_1[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "CLOSE IN EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
+                print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days)
+
+            if len(exception_codes2.get()) > 0:
+                ex_code_2 =  str(exception_codes2.get()).strip()
+                ex_code_2_origin = ex_code_2[0]+ex_code_2[1]+ex_code_2[2]
+                ex_code_2_destination = ex_code_2[3]+ex_code_2[4]+ex_code_2[5]
+                ex_code_2_days = str(exception_days2.get())
+       
+                total_exceptions_2 = serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                total_exceptions_list.append(total_exceptions_2[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
+                print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days)
+
+            if len(exception_codes3.get()) > 0:
+                ex_code_3 =  str(exception_codes3.get()).strip()
+                ex_code_3_origin = ex_code_3[0]+ex_code_3[1]+ex_code_3[2]
+                ex_code_3_destination = ex_code_3[3]+ex_code_3[4]+ex_code_3[5]
+                ex_code_3_days = str(exception_days3.get())
+       
+                total_exceptions_3 = serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                total_exceptions_list.append(total_exceptions_3[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
+                print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days)
+
+
+            if len(exception_codes4.get()) > 0:
+                ex_code_4 =  str(exception_codes4.get()).strip()
+                ex_code_4_origin = ex_code_4[0]+ex_code_4[1]+ex_code_4[2]
+                ex_code_4_destination = ex_code_4[3]+ex_code_4[4]+ex_code_4[5]
+                ex_code_4_days = str(exception_days4.get())
+       
+                total_exceptions_4 = serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                total_exceptions_list.append(total_exceptions_4[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "CLOSE IN EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
+                print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days)
+        else:
+            total_exceptions_list = []
+
+        print total_exceptions_list
+
+        if len(lastMinuteRows("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "LAST MINUTE ALL OTHERS: "+str(len(lastMinuteRows("AS", total_exceptions_list)))
+            print lastMinuteRows("AS", total_exceptions_list)
+            lastminuteDealSet(lastMinuteRows("AS", total_exceptions_list),pass_AdvancePurchase,"lastminute")
+
 
 
     #NORMAL WEEKLY DEALS HANDLER
