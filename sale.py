@@ -23,6 +23,7 @@ marnel = StringVar()
 radio_1 = Radiobutton(window, text="Weekly ", variable=marnel, value="AS")
 radio_2 = Radiobutton(window, text="Club 49", variable=marnel, value="C49")
 radio_3 = Radiobutton(window, text="Last Minute", variable=marnel, value="LastMinute")
+radio_4 = Radiobutton(window, text="Award Sale", variable=marnel, value="AwardSale")
 
 weekly_label = Label(window, text="Normal Deals. Can be used for larger sales.", width=40)
 club_49_label = Label(window, text="Specific to Club 49 fares.", width=40)
@@ -94,49 +95,51 @@ fileBtn.grid(row=3, column=2, columnspan = 1)
 radio_1.grid(row=4, column=1, columnspan = 1)
 radio_2.grid(row=5, column=1, columnspan = 1)
 radio_3.grid(row=6, column=1, columnspan = 1)
-
-weekly_label.grid(row=4, column=2, columnspan = 2)
-club_49_label.grid(row=5, column=2, columnspan = 2)
-last_minute_label.grid(row=6, column=2, columnspan = 2)
+radio_4.grid(row=7, column=1, columnspan = 1)
 
 
-
-exception_codes_label1.grid(row=9, column=1)
-exception_codes_label2.grid(row=7, column=2)
-exception_codes_label3.grid(row=7, column=3)
-exception_codes_label4.grid(row=7, column=4)
-exception_codes_label5.grid(row=7, column=5)
+weekly_label.grid(row=5, column=2, columnspan = 2)
+club_49_label.grid(row=6, column=2, columnspan = 2)
+last_minute_label.grid(row=7, column=2, columnspan = 2)
 
 
-example_label.grid(row=8, column=1)
-example_codes_label.grid(row=8, column=2)
-example_days_label.grid(row=8, column=3)
-example_start_label.grid(row=8, column=4)
-example_end_label.grid(row=8, column=5)
+
+exception_codes_label1.grid(row=10, column=1)
+exception_codes_label2.grid(row=8, column=2)
+exception_codes_label3.grid(row=8, column=3)
+exception_codes_label4.grid(row=8, column=4)
+exception_codes_label5.grid(row=8, column=5)
 
 
-exception_codes1.grid(row=9, column=2)
-exception_days1.grid(row=9, column=3)
-exception_start1.grid(row=9, column=4)
-exception_end1.grid(row=9, column=5)
-
-exception_codes2.grid(row=10, column=2)
-exception_days2.grid(row=10, column=3)
-exception_start2.grid(row=10, column=4)
-exception_end2.grid(row=10, column=5)
-
-exception_codes3.grid(row=11, column=2)
-exception_days3.grid(row=11, column=3)
-exception_start3.grid(row=11, column=4)
-exception_end3.grid(row=11, column=5)
-
-exception_codes4.grid(row=12, column=2)
-exception_days4.grid(row=12, column=3)
-exception_start4.grid(row=12, column=4)
-exception_end4.grid(row=12, column=5)
+example_label.grid(row=9, column=1)
+example_codes_label.grid(row=9, column=2)
+example_days_label.grid(row=9, column=3)
+example_start_label.grid(row=9, column=4)
+example_end_label.grid(row=9, column=5)
 
 
-runBtn.grid(row=14, column=2, columnspan = 1)
+exception_codes1.grid(row=10, column=2)
+exception_days1.grid(row=10, column=3)
+exception_start1.grid(row=10, column=4)
+exception_end1.grid(row=10, column=5)
+
+exception_codes2.grid(row=11, column=2)
+exception_days2.grid(row=11, column=3)
+exception_start2.grid(row=11, column=4)
+exception_end2.grid(row=11, column=5)
+
+exception_codes3.grid(row=12, column=2)
+exception_days3.grid(row=12, column=3)
+exception_start3.grid(row=12, column=4)
+exception_end3.grid(row=12, column=5)
+
+exception_codes4.grid(row=13, column=2)
+exception_days4.grid(row=13, column=3)
+exception_start4.grid(row=13, column=4)
+exception_end4.grid(row=13, column=5)
+
+
+runBtn.grid(row=15, column=2, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
 
 
@@ -663,6 +666,24 @@ def automate() :
         #returns list
         return my_fares
 
+    
+
+    #AWARD SALE SPECIFIC
+    def pullAwardSaleFaresAndSaveInList(list_being_passed):
+        #This sets the name of all keys for the list of dictionary  
+        keys = ["oCode","oCity","dCode","dCity","fare","fees"]
+        my_dictionary_list = []
+        # this selects how many rows to read
+        for row in range(1, sheet.nrows):
+            if row in list_being_passed:
+                my_dictionary_list.append({keys[0]: sheet.cell(row, 7).value,keys[1]: sheet.cell(row, 8).value,keys[2]: sheet.cell(row, 9).value,keys[3]: sheet.cell(row, 10).value,keys[4]: int(sheet.cell(row, 11).value),keys[5]: int(sheet.cell(row, 12).value)})
+        # saves the list into a variable
+        #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
+        my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
+        #print ast.literal_eval(json.dumps(my_fares))
+        #returns list
+        return my_fares
+
 
 
 
@@ -717,12 +738,13 @@ def automate() :
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = str(a['fare'])
 
+
         return dealset
         
 
 
     #CREATE ALASKA DEALSETS
-    def alaskaDealSet(which_rows, advance_purchase, upper_or_lower,):
+    def alaskaDealSet(which_rows, advance_purchase, upper_or_lower):
         
         dealset = ET.SubElement(root, "DealSet")
         dealset.attrib['from']= str(parseDates(getValueToTheRightOfString("Sale Start Date:")))+'T00:00:01'
@@ -800,6 +822,84 @@ def automate() :
         return dealset
 
 
+
+    #AWARD SALEDEALSETS
+    def awardSaleDealSet(which_rows, advance_purchase, upper_or_lower):
+        
+        dealset = ET.SubElement(root, "DealSet")
+        dealset.attrib['from']= str(parseDates(getValueToTheRightOfString("Sale Start Date:")))+'T00:00:01'
+        dealset.attrib['to']= str(parseDates(getValueToTheRightOfString("Purchase By:")))+'T23:59:59'
+
+
+        dealinfo = ET.SubElement(dealset, "DealInfo")
+        dealinfo.attrib['url']=''
+        makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
+
+        
+        if upper_or_lower == 'hawaii':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-HI'
+        
+        if upper_or_lower == 'mexico':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-MX'
+
+        if upper_or_lower == 'costarica':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-CR'
+        
+        if upper_or_lower == 'florida':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-FL'
+
+        if upper_or_lower == 'others':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE'
+
+
+        traveldates = ET.SubElement(dealinfo, "TravelDates")
+        if upper_or_lower == 'hawaii':
+            traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+            traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Hawaii")))+'T23:59:59'
+        else:
+            traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+            traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Others")))+'T23:59:59'
+
+        dealtitle = ET.SubElement(dealinfo, "DealTitle")
+        
+        dealdescription = ET.SubElement(dealinfo, "DealDescrip").text = "<![CDATA[Purchase by "+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+".]]>"
+        if upper_or_lower == 'hawaii':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to and from Hawaii is valid '+getAvailability("To/From Hawaii")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+       
+        if upper_or_lower == 'mexico':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to Mexico is valid '+getAvailability("AS - to Mexico")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+        if upper_or_lower == 'costarica':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to Costa Rica is valid '+getAvailability("AS - to Costa Rica")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+        
+        if upper_or_lower == 'florida':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel from Florida is valid '+getAvailability("From Florida")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Travel to Florida is valid '+getAvailability("To Florida")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+
+        if upper_or_lower == 'others':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel is valid '+getAvailability("All Others")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked.aspx">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+        fares = ET.SubElement(dealset, "Fares")
+
+        #This for loop will create each Row and Cell of XML for each item/dictionary in the list
+        #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
+        for a in pullAwardSaleFaresAndSaveInList(which_rows):
+            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+            row = ET.SubElement(fares, "Row") #showAsDefault="true"
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['oCode']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['oCity']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['dCode']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = a['dCity']
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = str(a['fare'])
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = str(a['fees'])
+
+        return dealset
 
 
 
@@ -1254,6 +1354,153 @@ def automate() :
             print allOtherRows("AS", total_exceptions_list)
             alaskaDealSet(allOtherRows("AS", total_exceptions_list),pass_AdvancePurchase,"others")
 
+
+
+
+    #AWARD SALE DEALS HANDLER
+    if(marnel.get() == 'AwardSale'):
+
+        #SERVICE EXCEPTION HANDLER
+        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0:
+            print exception_codes1.get() + exception_days1.get()
+            total_exceptions_list = []
+            if len(exception_codes1.get()) > 0:
+
+                if len(exception_start1.get()) > 0:
+                    travel_start = exception_start1.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end1.get()) > 0:
+                    travel_end = exception_end1.get()
+                else:
+                    travel_end = ''
+
+                ex_code_1 =  str(exception_codes1.get()).strip()
+                ex_code_1_origin = ex_code_1[0]+ex_code_1[1]+ex_code_1[2]
+                ex_code_1_destination = ex_code_1[3]+ex_code_1[4]+ex_code_1[5]
+                ex_code_1_days = str(exception_days1.get())
+       
+                total_exceptions_1 = serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                total_exceptions_list.append(total_exceptions_1[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
+                print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days,travel_start,travel_end)
+
+            if len(exception_codes2.get()) > 0:
+
+                if len(exception_start2.get()) > 0:
+                    travel_start = exception_start2.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end2.get()) > 0:
+                    travel_end = exception_end2.get()
+                else:
+                    travel_end = ''
+
+                ex_code_2 =  str(exception_codes2.get()).strip()
+                ex_code_2_origin = ex_code_2[0]+ex_code_2[1]+ex_code_2[2]
+                ex_code_2_destination = ex_code_2[3]+ex_code_2[4]+ex_code_2[5]
+                ex_code_2_days = str(exception_days2.get())
+       
+                total_exceptions_2 = serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                total_exceptions_list.append(total_exceptions_2[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
+                print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days,travel_start,travel_end)
+
+            if len(exception_codes3.get()) > 0:
+                if len(exception_start3.get()) > 0:
+                    travel_start = exception_start3.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end3.get()) > 0:
+                    travel_end = exception_end3.get()
+                else:
+                    travel_end = ''
+
+                ex_code_3 =  str(exception_codes3.get()).strip()
+                ex_code_3_origin = ex_code_3[0]+ex_code_3[1]+ex_code_3[2]
+                ex_code_3_destination = ex_code_3[3]+ex_code_3[4]+ex_code_3[5]
+                ex_code_3_days = str(exception_days3.get())
+       
+                total_exceptions_3 = serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                total_exceptions_list.append(total_exceptions_3[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
+                print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end)
+
+
+            if len(exception_codes4.get()) > 0:
+                if len(exception_start4.get()) > 0:
+                    travel_start = exception_start4.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end4.get()) > 0:
+                    travel_end = exception_end4.get()
+                else:
+                    travel_end = ''
+
+                ex_code_4 =  str(exception_codes4.get()).strip()
+                ex_code_4_origin = ex_code_4[0]+ex_code_4[1]+ex_code_4[2]
+                ex_code_4_destination = ex_code_4[3]+ex_code_4[4]+ex_code_4[5]
+                ex_code_4_days = str(exception_days4.get())
+       
+                total_exceptions_4 = serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                total_exceptions_list.append(total_exceptions_4[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
+                print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end)
+        else:
+            total_exceptions_list = []
+
+        print total_exceptions_list
+
+
+        if len(hawaiiFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "HAWAII: "+str(len(hawaiiFares("AS", total_exceptions_list)))
+            print hawaiiFares("AS", total_exceptions_list)
+            awardSaleDealSet(hawaiiFares("AS", total_exceptions_list),pass_AdvancePurchase,"hawaii")
+
+        if len(mexicoFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "MEXICO: "+str(len(mexicoFares("AS", total_exceptions_list)))
+            print mexicoFares("AS", total_exceptions_list)
+            awardSaleDealSet(mexicoFares("AS", total_exceptions_list),pass_AdvancePurchase,"mexico")
+
+        if len(costaricaFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "COSTA RICA: "+str(len(costaricaFares("AS", total_exceptions_list)))
+            print costaricaFares("AS", total_exceptions_list)
+            awardSaleDealSet(costaricaFares("AS", total_exceptions_list),pass_AdvancePurchase,"costarica")
+
+        # if len(floridaFares("AS", total_exceptions_list)) > 0:
+        #     pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+        #     print "FLORIDA: "+str(len(floridaFares("AS", total_exceptions_list)))
+        #     print floridaFares("AS", total_exceptions_list)
+        #     alaskaDealSet(floridaFares("AS", total_exceptions_list),pass_AdvancePurchase,"florida")
+
+        if len(allOtherRows("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "ALL OTHERS: "+str(len(allOtherRows("AS", total_exceptions_list)))
+            print allOtherRows("AS", total_exceptions_list)
+            awardSaleDealSet(allOtherRows("AS", total_exceptions_list),pass_AdvancePurchase,"others")
         
 
     tree.write("automated-flights.xml")
