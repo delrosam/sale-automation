@@ -876,6 +876,7 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
+        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
         makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
 
         if upper_or_lower == 'alaskahawaii':
@@ -940,6 +941,7 @@ def automate() :
         for a in pullFaresAndSaveInList(which_rows):
             # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
+            row.set('fareType', "Main") #Awards || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
@@ -963,6 +965,7 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
+        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
         makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
 
         dealinfo.attrib['code']=makecode+'_SALE_AS-'+str(origin_code)+str(destination_code)
@@ -997,6 +1000,7 @@ def automate() :
         for a in pullFaresAndSaveInList(which_rows):
             # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
+            row.set('fareType', "Main") #Awards || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
