@@ -17,6 +17,8 @@ browseLabel = Label (window, width=30)
 fileBtn = Button (window, padx=10, pady=20)
 marnel = StringVar()
 
+
+
 except_1_variable = StringVar()
 except_2_variable = StringVar()
 except_3_variable = StringVar()
@@ -29,6 +31,15 @@ except_9_variable = StringVar()
 except_10_variable = StringVar()
 except_11_variable = StringVar()
 except_12_variable = StringVar()
+
+except_13_variable = StringVar()
+except_14_variable = StringVar()
+except_15_variable = StringVar()
+except_16_variable = StringVar()
+except_17_variable = StringVar()
+except_18_variable = StringVar()
+except_19_variable = StringVar()
+except_20_variable = StringVar()
 
 
 #entry_travel_start = Entry(window)
@@ -60,6 +71,24 @@ except_11_travelvalid = Radiobutton(window, text="Travel Valid", variable=except
 except_11_servicestart = Radiobutton(window, text="Service Start", variable=except_11_variable, value="service_start_value")
 except_12_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
 except_12_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+
+except_13_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_13_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_14_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_14_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_15_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_15_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_16_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_16_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_17_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_17_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_18_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_18_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_19_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_19_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+except_20_travelvalid = Radiobutton(window, text="Travel Valid", variable=except_12_variable, value="travel_valid_value")
+except_20_servicestart = Radiobutton(window, text="Service Start", variable=except_12_variable, value="service_start_value")
+
 
 weekly_label = Label(window, text="Flash Sale Type", width=40)
 
@@ -155,6 +184,45 @@ exception_days12 = Entry(window, width=25)
 exception_start12 = Entry(window, width=8)
 exception_end12 = Entry(window, width=8)
 
+exception_codes13 = Entry(window, width=8)
+exception_days13 = Entry(window, width=25)
+exception_start13 = Entry(window, width=8)
+exception_end13 = Entry(window, width=8)
+
+exception_codes14 = Entry(window, width=8)
+exception_days14 = Entry(window, width=25)
+exception_start14 = Entry(window, width=8)
+exception_end14 = Entry(window, width=8)
+
+exception_codes15 = Entry(window, width=8)
+exception_days15 = Entry(window, width=25)
+exception_start15 = Entry(window, width=8)
+exception_end15 = Entry(window, width=8)
+
+exception_codes16 = Entry(window, width=8)
+exception_days16 = Entry(window, width=25)
+exception_start16 = Entry(window, width=8)
+exception_end16 = Entry(window, width=8)
+
+exception_codes17 = Entry(window, width=8)
+exception_days17 = Entry(window, width=25)
+exception_start17 = Entry(window, width=8)
+exception_end17 = Entry(window, width=8)
+
+exception_codes18 = Entry(window, width=8)
+exception_days18 = Entry(window, width=25)
+exception_start18 = Entry(window, width=8)
+exception_end18 = Entry(window, width=8)
+
+exception_codes19 = Entry(window, width=8)
+exception_days19 = Entry(window, width=25)
+exception_start19 = Entry(window, width=8)
+exception_end19 = Entry(window, width=8)
+
+exception_codes20 = Entry(window, width=8)
+exception_days20 = Entry(window, width=25)
+exception_start20 = Entry(window, width=8)
+exception_end20 = Entry(window, width=8)
 
 
 runBtn = Button (window, padx=10, pady=20)
@@ -223,6 +291,40 @@ except_11_servicestart.grid(row=21, column=2, columnspan = 1)
 except_12_travelvalid.select()
 except_12_travelvalid.grid(row=22, column=1, columnspan = 1)
 except_12_servicestart.grid(row=22, column=2, columnspan = 1)
+
+
+except_13_travelvalid.select()
+except_13_travelvalid.grid(row=23, column=1, columnspan = 1)
+except_13_servicestart.grid(row=23, column=2, columnspan = 1)
+
+except_14_travelvalid.select()
+except_14_travelvalid.grid(row=24, column=1, columnspan = 1)
+except_14_servicestart.grid(row=24, column=2, columnspan = 1)
+
+except_15_travelvalid.select()
+except_15_travelvalid.grid(row=25, column=1, columnspan = 1)
+except_15_servicestart.grid(row=25, column=2, columnspan = 1)
+
+except_16_travelvalid.select()
+except_16_travelvalid.grid(row=26, column=1, columnspan = 1)
+except_16_servicestart.grid(row=26, column=2, columnspan = 1)
+
+except_17_travelvalid.select()
+except_17_travelvalid.grid(row=27, column=1, columnspan = 1)
+except_17_servicestart.grid(row=27, column=2, columnspan = 1)
+
+except_18_travelvalid.select()
+except_18_travelvalid.grid(row=28, column=1, columnspan = 1)
+except_18_servicestart.grid(row=28, column=2, columnspan = 1)
+
+except_19_travelvalid.select()
+except_19_travelvalid.grid(row=29, column=1, columnspan = 1)
+except_19_servicestart.grid(row=29, column=2, columnspan = 1)
+
+except_20_travelvalid.select()
+except_20_travelvalid.grid(row=30, column=1, columnspan = 1)
+except_20_servicestart.grid(row=30, column=2, columnspan = 1)
+
 
 #exception_codes_label1.grid(row=11, column=1)
 
@@ -304,7 +406,47 @@ exception_days12.grid(row=22, column=4)
 exception_start12.grid(row=22, column=5)
 exception_end12.grid(row=22, column=6)
 
-runBtn.grid(row=25, column=2, columnspan = 1)
+exception_codes13.grid(row=23, column=3)
+exception_days13.grid(row=23, column=4)
+exception_start13.grid(row=23, column=5)
+exception_end13.grid(row=23, column=6)
+
+exception_codes14.grid(row=24, column=3)
+exception_days14.grid(row=24, column=4)
+exception_start14.grid(row=24, column=5)
+exception_end14.grid(row=24, column=6)
+
+exception_codes15.grid(row=25, column=3)
+exception_days15.grid(row=25, column=4)
+exception_start15.grid(row=25, column=5)
+exception_end15.grid(row=25, column=6)
+
+exception_codes16.grid(row=26, column=3)
+exception_days16.grid(row=26, column=4)
+exception_start16.grid(row=26, column=5)
+exception_end16.grid(row=26, column=6)
+
+exception_codes17.grid(row=27, column=3)
+exception_days17.grid(row=27, column=4)
+exception_start17.grid(row=27, column=5)
+exception_end17.grid(row=27, column=6)
+
+exception_codes18.grid(row=28, column=3)
+exception_days18.grid(row=28, column=4)
+exception_start18.grid(row=28, column=5)
+exception_end18.grid(row=28, column=6)
+
+exception_codes19.grid(row=29, column=3)
+exception_days19.grid(row=29, column=4)
+exception_start19.grid(row=29, column=5)
+exception_end19.grid(row=29, column=6)
+
+exception_codes20.grid(row=30, column=3)
+exception_days20.grid(row=30, column=4)
+exception_start20.grid(row=30, column=5)
+exception_end20.grid(row=30, column=6)
+
+runBtn.grid(row=1, column=5, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
 
 
@@ -341,10 +483,42 @@ def reset() :
     exception_codes2.delete(0, 'end')
     exception_codes3.delete(0, 'end')
     exception_codes4.delete(0, 'end')
+    exception_codes5.delete(0, 'end')
+    exception_codes6.delete(0, 'end')
+    exception_codes7.delete(0, 'end')
+    exception_codes8.delete(0, 'end')
+    exception_codes9.delete(0, 'end')
+    exception_codes10.delete(0, 'end')
+    exception_codes11.delete(0, 'end')
+    exception_codes12.delete(0, 'end')
+    exception_codes13.delete(0, 'end')
+    exception_codes14.delete(0, 'end')
+    exception_codes15.delete(0, 'end')
+    exception_codes16.delete(0, 'end')
+    exception_codes17.delete(0, 'end')
+    exception_codes18.delete(0, 'end')
+    exception_codes19.delete(0, 'end')
+    exception_codes20.delete(0, 'end')
     exception_days1.delete(0, 'end')
     exception_days2.delete(0, 'end')
     exception_days3.delete(0, 'end')
     exception_days4.delete(0, 'end')
+    exception_days5.delete(0, 'end')
+    exception_days6.delete(0, 'end')
+    exception_days7.delete(0, 'end')
+    exception_days8.delete(0, 'end')
+    exception_days9.delete(0, 'end')
+    exception_days10.delete(0, 'end')
+    exception_days11.delete(0, 'end')
+    exception_days12.delete(0, 'end')
+    exception_days13.delete(0, 'end')
+    exception_days14.delete(0, 'end')
+    exception_days15.delete(0, 'end')
+    exception_days16.delete(0, 'end')
+    exception_days17.delete(0, 'end')
+    exception_days18.delete(0, 'end')
+    exception_days19.delete(0, 'end')
+    exception_days20.delete(0, 'end')
     fileBtn.configure(state = NORMAL)
     resBtn.configure(state=DISABLED)  
     runBtn.configure(state = DISABLED)
@@ -847,7 +1021,7 @@ def automate() :
 
 
 
-    tree = ET.parse('flash.xml')
+    tree = ET.parse('flash-steve.xml')
     root = tree.getroot()  # now get the root
     root.attrib['xmlns:ss']="urn:schemas-microsoft-com:office:spreadsheet"
 
@@ -1017,7 +1191,7 @@ def automate() :
     if(marnel.get() == 'FlashSale'):
 
         #SERVICE EXCEPTION HANDLER
-        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0 or len(exception_codes5.get()) > 0 or len(exception_codes6.get()) > 0 or len(exception_codes7.get()) > 0 or len(exception_codes8.get()) > 0 or len(exception_codes9.get()) > 0 or len(exception_codes10.get()) > 0 or len(exception_codes11.get()) > 0 or len(exception_codes12.get()) > 0:
+        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0 or len(exception_codes5.get()) > 0 or len(exception_codes6.get()) > 0 or len(exception_codes7.get()) > 0 or len(exception_codes8.get()) > 0 or len(exception_codes9.get()) > 0 or len(exception_codes10.get()) > 0 or len(exception_codes11.get()) > 0 or len(exception_codes12.get()) > 0 or len(exception_codes13.get()) > 0 or len(exception_codes14.get()) > 0 or len(exception_codes15.get()) > 0 or len(exception_codes16.get()) > 0 or len(exception_codes17.get()) > 0 or len(exception_codes18.get()) > 0 or len(exception_codes19.get()) > 0 or len(exception_codes20.get()) > 0:
             total_exceptions_list = []
 
             if len(exception_codes1.get()) > 0:
@@ -1323,7 +1497,7 @@ def automate() :
                 else:
                     print(exception_codes11.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print("EXCEPTION ELEVEN: "+str(len(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination))))
+                print("EXCEPTION Elevel: "+str(len(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination))))
                 print(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination))
                 serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination),pass_AdvancePurchase,ex_code_11_origin,ex_code_11_destination,ex_code_11_days,travel_start,travel_end, except_11_variable.get())
@@ -1351,10 +1525,235 @@ def automate() :
                 else:
                     print(exception_codes12.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print("EXCEPTION TWELVE: "+str(len(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination))))
+                print("EXCEPTION Twelve: "+str(len(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination))))
                 print(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination))
                 serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination),pass_AdvancePurchase,ex_code_12_origin,ex_code_12_destination,ex_code_12_days,travel_start,travel_end, except_12_variable.get())
+
+
+            if len(exception_codes13.get()) > 0:
+                if len(exception_start13.get()) > 0:
+                    travel_start = exception_start13.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end13.get()) > 0:
+                    travel_end = exception_end13.get()
+                else:
+                    travel_end = ''
+
+                ex_code_13 =  str(exception_codes13.get()).strip()
+                ex_code_13_origin = ex_code_13[0]+ex_code_13[1]+ex_code_13[2]
+                ex_code_13_destination = ex_code_13[3]+ex_code_13[4]+ex_code_13[5]
+                ex_code_13_days = str(exception_days13.get())
+       
+                total_exceptions_13 = serviceExceptionFares("AS", ex_code_13_origin, ex_code_13_destination)
+                if total_exceptions_13:
+                    total_exceptions_list.append(total_exceptions_13[0])
+                else:
+                    print(exception_codes13.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Thirteen: "+str(len(serviceExceptionFares("AS", ex_code_13_origin, ex_code_13_destination))))
+                print(serviceExceptionFares("AS", ex_code_13_origin, ex_code_13_destination))
+                serviceExceptionFares("AS", ex_code_13_origin, ex_code_13_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_13_origin, ex_code_13_destination),pass_AdvancePurchase,ex_code_13_origin,ex_code_13_destination,ex_code_13_days,travel_start,travel_end, except_13_variable.get())
+
+
+            if len(exception_codes14.get()) > 0:
+                if len(exception_start14.get()) > 0:
+                    travel_start = exception_start14.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end14.get()) > 0:
+                    travel_end = exception_end14.get()
+                else:
+                    travel_end = ''
+
+                ex_code_14 =  str(exception_codes14.get()).strip()
+                ex_code_14_origin = ex_code_14[0]+ex_code_14[1]+ex_code_14[2]
+                ex_code_14_destination = ex_code_14[3]+ex_code_14[4]+ex_code_14[5]
+                ex_code_14_days = str(exception_days14.get())
+       
+                total_exceptions_14 = serviceExceptionFares("AS", ex_code_14_origin, ex_code_14_destination)
+                if total_exceptions_14:
+                    total_exceptions_list.append(total_exceptions_14[0])
+                else:
+                    print(exception_codes14.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Fourteen: "+str(len(serviceExceptionFares("AS", ex_code_14_origin, ex_code_14_destination))))
+                print(serviceExceptionFares("AS", ex_code_14_origin, ex_code_14_destination))
+                serviceExceptionFares("AS", ex_code_14_origin, ex_code_14_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_14_origin, ex_code_14_destination),pass_AdvancePurchase,ex_code_14_origin,ex_code_14_destination,ex_code_14_days,travel_start,travel_end, except_14_variable.get())
+
+
+            if len(exception_codes15.get()) > 0:
+                if len(exception_start15.get()) > 0:
+                    travel_start = exception_start15.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end15.get()) > 0:
+                    travel_end = exception_end15.get()
+                else:
+                    travel_end = ''
+
+                ex_code_15 =  str(exception_codes15.get()).strip()
+                ex_code_15_origin = ex_code_15[0]+ex_code_15[1]+ex_code_15[2]
+                ex_code_15_destination = ex_code_15[3]+ex_code_15[4]+ex_code_15[5]
+                ex_code_15_days = str(exception_days15.get())
+       
+                total_exceptions_15 = serviceExceptionFares("AS", ex_code_15_origin, ex_code_15_destination)
+                if total_exceptions_15:
+                    total_exceptions_list.append(total_exceptions_15[0])
+                else:
+                    print(exception_codes15.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Fifteen: "+str(len(serviceExceptionFares("AS", ex_code_15_origin, ex_code_15_destination))))
+                print(serviceExceptionFares("AS", ex_code_15_origin, ex_code_15_destination))
+                serviceExceptionFares("AS", ex_code_15_origin, ex_code_15_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_15_origin, ex_code_15_destination),pass_AdvancePurchase,ex_code_15_origin,ex_code_15_destination,ex_code_15_days,travel_start,travel_end, except_15_variable.get())
+
+
+            if len(exception_codes16.get()) > 0:
+                if len(exception_start16.get()) > 0:
+                    travel_start = exception_start16.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end16.get()) > 0:
+                    travel_end = exception_end16.get()
+                else:
+                    travel_end = ''
+
+                ex_code_16 =  str(exception_codes16.get()).strip()
+                ex_code_16_origin = ex_code_16[0]+ex_code_16[1]+ex_code_16[2]
+                ex_code_16_destination = ex_code_16[3]+ex_code_16[4]+ex_code_16[5]
+                ex_code_16_days = str(exception_days16.get())
+       
+                total_exceptions_16 = serviceExceptionFares("AS", ex_code_16_origin, ex_code_16_destination)
+                if total_exceptions_16:
+                    total_exceptions_list.append(total_exceptions_16[0])
+                else:
+                    print(exception_codes16.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Sixteen: "+str(len(serviceExceptionFares("AS", ex_code_16_origin, ex_code_16_destination))))
+                print(serviceExceptionFares("AS", ex_code_16_origin, ex_code_16_destination))
+                serviceExceptionFares("AS", ex_code_16_origin, ex_code_16_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_16_origin, ex_code_16_destination),pass_AdvancePurchase,ex_code_16_origin,ex_code_16_destination,ex_code_16_days,travel_start,travel_end, except_16_variable.get())
+
+
+            if len(exception_codes17.get()) > 0:
+                if len(exception_start17.get()) > 0:
+                    travel_start = exception_start17.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end17.get()) > 0:
+                    travel_end = exception_end17.get()
+                else:
+                    travel_end = ''
+
+                ex_code_17 =  str(exception_codes17.get()).strip()
+                ex_code_17_origin = ex_code_17[0]+ex_code_17[1]+ex_code_17[2]
+                ex_code_17_destination = ex_code_17[3]+ex_code_17[4]+ex_code_17[5]
+                ex_code_17_days = str(exception_days17.get())
+       
+                total_exceptions_17 = serviceExceptionFares("AS", ex_code_17_origin, ex_code_17_destination)
+                if total_exceptions_17:
+                    total_exceptions_list.append(total_exceptions_17[0])
+                else:
+                    print(exception_codes17.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Seventeen: "+str(len(serviceExceptionFares("AS", ex_code_17_origin, ex_code_17_destination))))
+                print(serviceExceptionFares("AS", ex_code_17_origin, ex_code_17_destination))
+                serviceExceptionFares("AS", ex_code_17_origin, ex_code_17_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_17_origin, ex_code_17_destination),pass_AdvancePurchase,ex_code_17_origin,ex_code_17_destination,ex_code_17_days,travel_start,travel_end, except_17_variable.get())
+
+
+            if len(exception_codes18.get()) > 0:
+                if len(exception_start18.get()) > 0:
+                    travel_start = exception_start18.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end18.get()) > 0:
+                    travel_end = exception_end18.get()
+                else:
+                    travel_end = ''
+
+                ex_code_18 =  str(exception_codes18.get()).strip()
+                ex_code_18_origin = ex_code_18[0]+ex_code_18[1]+ex_code_18[2]
+                ex_code_18_destination = ex_code_18[3]+ex_code_18[4]+ex_code_18[5]
+                ex_code_18_days = str(exception_days18.get())
+       
+                total_exceptions_18 = serviceExceptionFares("AS", ex_code_18_origin, ex_code_18_destination)
+                if total_exceptions_18:
+                    total_exceptions_list.append(total_exceptions_18[0])
+                else:
+                    print(exception_codes18.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Eighteen: "+str(len(serviceExceptionFares("AS", ex_code_18_origin, ex_code_18_destination))))
+                print(serviceExceptionFares("AS", ex_code_18_origin, ex_code_18_destination))
+                serviceExceptionFares("AS", ex_code_18_origin, ex_code_18_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_18_origin, ex_code_18_destination),pass_AdvancePurchase,ex_code_18_origin,ex_code_18_destination,ex_code_18_days,travel_start,travel_end, except_18_variable.get())
+
+
+            if len(exception_codes19.get()) > 0:
+                if len(exception_start19.get()) > 0:
+                    travel_start = exception_start19.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end19.get()) > 0:
+                    travel_end = exception_end19.get()
+                else:
+                    travel_end = ''
+
+                ex_code_19 =  str(exception_codes19.get()).strip()
+                ex_code_19_origin = ex_code_19[0]+ex_code_19[1]+ex_code_19[2]
+                ex_code_19_destination = ex_code_19[3]+ex_code_19[4]+ex_code_19[5]
+                ex_code_19_days = str(exception_days19.get())
+       
+                total_exceptions_19 = serviceExceptionFares("AS", ex_code_19_origin, ex_code_19_destination)
+                if total_exceptions_19:
+                    total_exceptions_list.append(total_exceptions_19[0])
+                else:
+                    print(exception_codes19.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Nineteen: "+str(len(serviceExceptionFares("AS", ex_code_19_origin, ex_code_19_destination))))
+                print(serviceExceptionFares("AS", ex_code_19_origin, ex_code_19_destination))
+                serviceExceptionFares("AS", ex_code_19_origin, ex_code_19_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_19_origin, ex_code_19_destination),pass_AdvancePurchase,ex_code_19_origin,ex_code_19_destination,ex_code_19_days,travel_start,travel_end, except_19_variable.get())
+
+
+            if len(exception_codes20.get()) > 0:
+
+                if len(exception_start20.get()) > 0:
+                    travel_start = exception_start20.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end20.get()) > 0:
+                    travel_end = exception_end20.get()
+                else:
+                    travel_end = ''
+
+                ex_code_20 =  str(exception_codes20.get()).strip()
+                ex_code_20_origin = ex_code_20[0]+ex_code_20[1]+ex_code_20[2]
+                ex_code_20_destination = ex_code_20[3]+ex_code_20[4]+ex_code_20[5]
+                ex_code_20_days = str(exception_days20.get())
+       
+                total_exceptions_20 = serviceExceptionFares("AS", ex_code_20_origin, ex_code_20_destination)
+                if total_exceptions_20:
+                    total_exceptions_list.append(total_exceptions_20[0])
+                else:
+                    print(exception_codes20.get()+' fares do not exist in this spreadsheet.')
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print("EXCEPTION Twenty: "+str(len(serviceExceptionFares("AS", ex_code_20_origin, ex_code_20_destination))))
+                print(serviceExceptionFares("AS", ex_code_20_origin, ex_code_20_destination))
+                serviceExceptionFares("AS", ex_code_20_origin, ex_code_20_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_20_origin, ex_code_20_destination),pass_AdvancePurchase,ex_code_20_origin,ex_code_20_destination,ex_code_20_days,travel_start,travel_end, except_20_variable.get())
 
 
         else:
@@ -1401,7 +1800,7 @@ def automate() :
 
 
 
-    tree.write("flash.xml")
+    tree.write("flash-steve.xml")
 
 
 fileBtn.configure(command=getfile)
