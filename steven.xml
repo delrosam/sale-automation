@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlightDeals xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+
+   <DealSet from="2018-08-21T00:00:01" to="2018-08-23T23:59:59">
+      <DealInfo code="CLUB_49_SALE" url="">
+         <TravelDates enddate="2018-10-30T23:59:59" startdate="2018-10-16T00:00:01" />
+         <DealTitle />
+         <DealDescrip><![CDATA[Club 49 Weekly Sale<br>Purchase by August 23, 2018.]]></DealDescrip>
+         <terms><![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on August 23, 2018, and at least 14 days prior to departure. Travel within Alaska is valid Monday through Thursday and Saturday from October 14, 2018 - November 13, 2018. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]></terms>
+      </DealInfo>
+      <Fares>
+         <Row>
+            <Cell><Data>ANC</Data></Cell>
+            <Cell><Data>Anchorage</Data></Cell>
+            <Cell><Data>JNU</Data></Cell>
+            <Cell><Data>Juneau</Data></Cell>
+            <Cell><Data>129</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>SIT</Data></Cell>
+            <Cell><Data>Sitka</Data></Cell>
+            <Cell><Data>WRG</Data></Cell>
+            <Cell><Data>Wrangell</Data></Cell>
+            <Cell><Data>129</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>WRG</Data></Cell>
+            <Cell><Data>Wrangell</Data></Cell>
+            <Cell><Data>SIT</Data></Cell>
+            <Cell><Data>Sitka</Data></Cell>
+            <Cell><Data>129</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>JNU</Data></Cell>
+            <Cell><Data>Juneau</Data></Cell>
+            <Cell><Data>ANC</Data></Cell>
+            <Cell><Data>Anchorage</Data></Cell>
+            <Cell><Data>131</Data></Cell>
+         </Row>
+      </Fares>
+   </DealSet>
+
+   <DealSet from="2018-08-21T00:00:01" to="2018-08-23T23:59:59">
+      <DealInfo code="CLUB_49_SALE" url="">
+         <TravelDates enddate="2018-10-30T23:59:59" startdate="2018-10-16T00:00:01" />
+         <DealTitle />
+         <DealDescrip><![CDATA[Club 49 Weekly Sale<br>Purchase by August 23, 2018.]]></DealDescrip>
+         <terms><![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on August 23, 2018, and at least 14 days prior to departure. Travel to the US is valid Sunday through Tuesday from October 14, 2018 - November 13, 2018. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]></terms>
+      </DealInfo>
+      <Fares>
+         <Row>
+            <Cell><Data>ANC</Data></Cell>
+            <Cell><Data>Anchorage</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>FAI</Data></Cell>
+            <Cell><Data>Fairbanks</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>JNU</Data></Cell>
+            <Cell><Data>Juneau</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>KTN</Data></Cell>
+            <Cell><Data>Ketchikan</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>PSG</Data></Cell>
+            <Cell><Data>Petersburg</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>SIT</Data></Cell>
+            <Cell><Data>Sitka</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>WRG</Data></Cell>
+            <Cell><Data>Wrangell</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>199</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>CDV</Data></Cell>
+            <Cell><Data>Cordova</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>229</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>YAK</Data></Cell>
+            <Cell><Data>Yakutat</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>229</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>BRW</Data></Cell>
+            <Cell><Data>Barrow</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>249</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>BET</Data></Cell>
+            <Cell><Data>Bethel</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>249</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>ADQ</Data></Cell>
+            <Cell><Data>Kodiak</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>249</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>OTZ</Data></Cell>
+            <Cell><Data>Kotzebue</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>249</Data></Cell>
+         </Row>
+         <Row>
+            <Cell><Data>OME</Data></Cell>
+            <Cell><Data>Nome</Data></Cell>
+            <Cell><Data>BOS</Data></Cell>
+            <Cell><Data>Boston</Data></Cell>
+            <Cell><Data>249</Data></Cell>
+         </Row>
+      </Fares>
+   </DealSet>
+   
+</FlightDeals>
