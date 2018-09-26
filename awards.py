@@ -1,13 +1,12 @@
-from tkinter import *
-from tkinter import filedialog
+from Tkinter import *
+import tkFileDialog
 import os
 import xlrd
 import json, ast, os, string, random, urllib
 import xml.etree.cElementTree as ET
 import datetime
 import dateparser
-#import tkMessageBox
-from tkinter import messagebox
+import tkMessageBox
 #comment here
 
 
@@ -21,9 +20,8 @@ marnel = StringVar()
 #entry_travel_start = Entry(window)
 #entry_start_label = Label(window, width=1, text="Travel Start")
 
-radio_1 = Radiobutton(window, text="Club 49", variable=marnel, value="C49")
+radio_1 = Radiobutton(window, text="Award Sale", variable=marnel, value="AwardSale")
 
-club_49_label = Label(window, text="Specific to Club 49 fares.", width=40)
 
 
 
@@ -47,9 +45,6 @@ example_days_label.configure(fg="gray")
 example_start_label.configure(fg="gray")
 example_end_label.configure(fg="gray")
 
-
-
-club_49_label.configure(fg="gray")
 
 
 
@@ -92,11 +87,6 @@ fileBtn.grid(row=3, column=2, columnspan = 1)
 radio_1.grid(row=4, column=1, columnspan = 1)
 
 
-club_49_label.grid(row=6, column=2, columnspan = 2)
-
-
-
-
 exception_codes_label1.grid(row=11, column=1)
 exception_codes_label2.grid(row=9, column=2)
 exception_codes_label3.grid(row=9, column=3)
@@ -136,7 +126,7 @@ runBtn.grid(row=16, column=2, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
 
 
-window.title('Club 49 Automation')
+window.title('Flight Deals Automation')
 window.resizable(0,0)
 browseLabel.configure(text='Choose a file ....')
 fileBtn.configure(text='Browse')
@@ -150,7 +140,7 @@ def getfile() :
     #/Users/mmangruban/Desktop/github/tkinter-gui.py/data-to-read
     #//seavvfile1/Market_SAIntMktg/_Offers/5. In Work/WeeklyFlightDeals/temp/testing
     #window.fileName =  tkFileDialog.askopenfilename(initialdir = wrkdirectory,title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
-    window.fileName =  filedialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
+    window.fileName =  tkFileDialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
     #window.fileName = tkFileDialog.askopenfilename(filetypes = (("Excel files", "*.xlsx"), ("All files", "*.*")))
     path, filename = os.path.split(window.fileName)
     if len(window.fileName) > 0:
@@ -201,8 +191,8 @@ def find_two_tuesday(d, weekday, span):
 
 
 def automate() :
-    print(window.fileName)
-    print(marnel.get())
+    print window.fileName
+    print marnel.get()
     runBtn.configure(state = DISABLED)
     resBtn.configure(state=NORMAL)
 
@@ -373,7 +363,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_year = str(parsed_date)
         my_year = my_year.split("-",1)[0]
-        print(my_year)
+        print my_year
         return int(my_year)
 
 
@@ -383,7 +373,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_month = str(parsed_date)
         my_month = my_month.split("-",2)[1]
-        print(my_month)
+        print my_month
         return int(my_month)
 
 
@@ -392,7 +382,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_day = str(parsed_date)
         my_day = my_day.split("-",3)[2]
-        print(my_day)
+        print my_day
         return int(my_day)
 
 
@@ -417,7 +407,7 @@ def automate() :
     def getStringCoordinates(string_to_search_for):
         for row_index in xrange(1, sheet_one.nrows):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
-                #print(row_index+1
+                #print row_index+1
                 return row_index+1
             
 
@@ -425,8 +415,8 @@ def automate() :
         for row_index in xrange(1, getStringCoordinates(string_to_search_for)):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print(string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
-                    #print(string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
+                    #print string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
+                    #print string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
                     #return parseDates(sheet_one.cell(row_index, 1).value)
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number
@@ -453,7 +443,7 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Advance Purchase:")+1, 53):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print(string_to_search_for+": "+sheet_one.cell(row_index, 1).value
+                    #print string_to_search_for+": "+sheet_one.cell(row_index, 1).value
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number        
 
@@ -654,7 +644,7 @@ def automate() :
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
-        #print(ast.literal_eval(json.dumps(my_fares))
+        #print ast.literal_eval(json.dumps(my_fares))
         #returns list
         return my_fares
 
@@ -672,7 +662,7 @@ def automate() :
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
-        #print(ast.literal_eval(json.dumps(my_fares))
+        #print ast.literal_eval(json.dumps(my_fares))
         #returns list
         return my_fares
 
@@ -680,13 +670,15 @@ def automate() :
 
 
 
-    tree = ET.parse('club49.xml')
+    tree = ET.parse('awards.xml')
     root = tree.getroot()  # now get the root
     root.attrib['xmlns:ss']="urn:schemas-microsoft-com:office:spreadsheet"
 
 
-    #CREATE GENERIC CLUB 49 DEALSET
-    def genericClub49DealSet(which_rows, advance_purchase, start_date, end_date, upper_or_lower, calendar_start, calendar_end):
+
+
+    #AWARD SALEDEALSETS
+    def awardSaleDealSet(which_rows, advance_purchase, upper_or_lower):
         
         dealset = ET.SubElement(root, "DealSet")
         dealset.attrib['from']= str(parseDates(getValueToTheRightOfString("Sale Start Date:")))+'T00:00:01'
@@ -695,32 +687,61 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
-        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
-        dealinfo.attrib['code']='CLUB_49_SALE'
+        dealinfo.attrib['dealType']='MileagePlan' #MileagePlan || Standard || Saver
+        makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
+
+        
+        if upper_or_lower == 'hawaii':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-HI'
+        
+        if upper_or_lower == 'mexico':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-MX'
+
+        if upper_or_lower == 'costarica':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-CR'
+        
+        if upper_or_lower == 'florida':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE-FL'
+
+        if upper_or_lower == 'others':
+            dealinfo.attrib['code']=makecode+'_AWARD_SALE'
 
 
         traveldates = ET.SubElement(dealinfo, "TravelDates")
-        traveldates.attrib['startdate']= calendar_start+'T00:00:01'  
-        traveldates.attrib['enddate']= calendar_end+'T23:59:59'
-        #traveldates.attrib['startdate']=str(getProposedDateStart("Calendar Dates - Others"))+'T00:00:01'  
-        #traveldates.attrib['enddate']=str(getProposedDateEnd("Calendar Dates - Others"))+'T23:59:59'
+        if upper_or_lower == 'hawaii':
+            traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+            traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Hawaii")))+'T23:59:59'
+        else:
+            traveldates.attrib['startdate']= str(parseDates(getValueToTheRightOfString("Proposed AS.com")))+'T00:00:01'  
+            traveldates.attrib['enddate']= str(parseDates(getValueToTheRightOfString("Calendar Dates - Others")))+'T23:59:59'
 
         dealtitle = ET.SubElement(dealinfo, "DealTitle")
         
-        dealdescription = ET.SubElement(dealinfo, "DealDescrip").text = "<![CDATA[Club 49 Weekly Sale<br>Purchase by "+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+".]]>"
-        if upper_or_lower == 'upper':
-            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel within Alaska is valid '+changeDaysFont(getAvailability("Within Alaska"))+' from '+str(dateInEnglish(getTravelStart("Within Alaska")))+' - '+str(dateInEnglish(getTravelEnd("Within Alaska")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
-        else:
-            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to the US is valid '+changeDaysFont(getAvailability("To U.S."))+' from '+str(dateInEnglish(getTravelStart("To U.S.")))+' - '+str(dateInEnglish(getTravelEnd("To U.S.")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+        dealdescription = ET.SubElement(dealinfo, "DealDescrip").text = "<![CDATA[Purchase by "+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+".]]>"
+        if upper_or_lower == 'hawaii':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to and from Hawaii is valid '+getAvailability("To/From Hawaii")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+       
+        if upper_or_lower == 'mexico':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to Mexico is valid '+getAvailability("AS - to Mexico")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+        if upper_or_lower == 'costarica':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel to Costa Rica is valid '+getAvailability("AS - to Costa Rica")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+        
+        if upper_or_lower == 'florida':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel from Florida is valid '+getAvailability("From Florida")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Travel to Florida is valid '+getAvailability("To Florida")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
+
+
+        if upper_or_lower == 'others':
+            terms = ET.SubElement(dealinfo, "terms").text = '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on '+str(dateInEnglish(getValueToTheRightOfString("Purchase By:")))+', and at least '+str(advance_purchase)+' prior to departure. Travel is valid '+getAvailability("All Others")+' from '+str(dateInEnglish(getValueToTheRightOfString("Travel Start:")))+' - '+str(dateInEnglish(getValueToTheRightOfString("Complete Travel By:")))+'. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]>'
 
         fares = ET.SubElement(dealset, "Fares")
 
         #This for loop will create each Row and Cell of XML for each item/dictionary in the list
         #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
-        for a in pullFaresAndSaveInList(which_rows):
-            # print(a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+        for a in pullAwardSaleFaresAndSaveInList(which_rows):
+            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
-            row.set('fareType', "Main") #Awards || Main || Saver
+            row.set('fareType', "Miles") #Miles || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
@@ -731,10 +752,11 @@ def automate() :
             ET.SubElement(cell, "Data").text = a['dCity']
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = str(a['fare'])
-
+            cell = ET.SubElement(row, "Cell")
+            ET.SubElement(cell, "Data").text = str(a['fees'])
 
         return dealset
-        
+
 
 
     def exceptionDealSet(which_rows, advance_purchase, origin_code, destination_code, travel_valid, travel_start, travel_end):
@@ -744,7 +766,7 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
-        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
+        dealinfo.attrib['dealType']='Standard'
         makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
 
         dealinfo.attrib['code']=makecode+'_SALE_AS-'+str(origin_code)+str(destination_code)
@@ -774,9 +796,9 @@ def automate() :
         #This for loop will create each Row and Cell of XML for each item/dictionary in the list
         #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
         for a in pullFaresAndSaveInList(which_rows):
-            # print(a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
-            row.set('fareType', "Main") #Awards || Main || Saver
+            row.set('fareType', "Main") #Miles || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
@@ -792,6 +814,7 @@ def automate() :
 
 
 
+
     #Books and Sheets
     book = xlrd.open_workbook(window.fileName)
     sheet_one = book.sheet_by_index(0)
@@ -800,78 +823,160 @@ def automate() :
 
 
 
-    #CLUB 49 DEALS HANDLER
-    if(marnel.get() == 'C49'):
-        def returnMyActualDateOne(whatday):
-            m = datetime.date(getYear(getTravelStart("Within Alaska")),getMonth(getTravelStart("Within Alaska")),getDay(getTravelStart("Within Alaska")))
-            next_tuesday = coming_tuesday(m, whatday)
-            return next_tuesday
 
-        def returnMyActualDateTwo(whatday, howmanyweeks):
-            n = datetime.date(getYear(getTravelStart("Within Alaska")),getMonth(getTravelStart("Within Alaska")),getDay(getTravelStart("Within Alaska")))
-            tuesday_after = find_two_tuesday(n, whatday, howmanyweeks)
-            return tuesday_after
+    #AWARD SALE DEALS HANDLER
+    if(marnel.get() == 'AwardSale'):
+
+        #SERVICE EXCEPTION HANDLER
+        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0:
+            print exception_codes1.get() + exception_days1.get()
+            total_exceptions_list = []
+            if len(exception_codes1.get()) > 0:
+
+                if len(exception_start1.get()) > 0:
+                    travel_start = exception_start1.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end1.get()) > 0:
+                    travel_end = exception_end1.get()
+                else:
+                    travel_end = ''
+
+                ex_code_1 =  str(exception_codes1.get()).strip()
+                ex_code_1_origin = ex_code_1[0]+ex_code_1[1]+ex_code_1[2]
+                ex_code_1_destination = ex_code_1[3]+ex_code_1[4]+ex_code_1[5]
+                ex_code_1_days = str(exception_days1.get())
+       
+                total_exceptions_1 = serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                total_exceptions_list.append(total_exceptions_1[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
+                print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days,travel_start,travel_end)
+
+            if len(exception_codes2.get()) > 0:
+
+                if len(exception_start2.get()) > 0:
+                    travel_start = exception_start2.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end2.get()) > 0:
+                    travel_end = exception_end2.get()
+                else:
+                    travel_end = ''
+
+                ex_code_2 =  str(exception_codes2.get()).strip()
+                ex_code_2_origin = ex_code_2[0]+ex_code_2[1]+ex_code_2[2]
+                ex_code_2_destination = ex_code_2[3]+ex_code_2[4]+ex_code_2[5]
+                ex_code_2_days = str(exception_days2.get())
+       
+                total_exceptions_2 = serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                total_exceptions_list.append(total_exceptions_2[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
+                print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days,travel_start,travel_end)
+
+            if len(exception_codes3.get()) > 0:
+                if len(exception_start3.get()) > 0:
+                    travel_start = exception_start3.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end3.get()) > 0:
+                    travel_end = exception_end3.get()
+                else:
+                    travel_end = ''
+
+                ex_code_3 =  str(exception_codes3.get()).strip()
+                ex_code_3_origin = ex_code_3[0]+ex_code_3[1]+ex_code_3[2]
+                ex_code_3_destination = ex_code_3[3]+ex_code_3[4]+ex_code_3[5]
+                ex_code_3_days = str(exception_days3.get())
+       
+                total_exceptions_3 = serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                total_exceptions_list.append(total_exceptions_3[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
+                print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end)
 
 
-        def getMyFirstDay(thisday):
-            next_tuesday = returnMyActualDateOne(thisday)
-            next_tuesday = str(next_tuesday)
-            next_tuesday = next_tuesday.split(" ",1)[0]
-            a1, b1, c1 = next_tuesday.split("-")
-            print("Month of tuesday coming up:",b1)
-            #getMonth(getTravelStart("Within Alaska"))
-            #next_tuesday = next_tuesday.replace("-","")
-            return b1
-        
-        
-        def getMySecondDay(thisday, howmanyweeks):
-            tuesday_after = returnMyActualDateTwo(thisday, howmanyweeks)
-            tuesday_after = str(tuesday_after)
-            tuesday_after = tuesday_after.split(" ",1)[0]
-            a2, b2, c2 = tuesday_after.split("-")
-            print("Month of 2 weeks in future:",b2)
-            #getMonth(getTravelStart("Within Alaska"))
-            #tuesday_after = tuesday_after.replace("-","")
-            return b2
+            if len(exception_codes4.get()) > 0:
+                if len(exception_start4.get()) > 0:
+                    travel_start = exception_start4.get()
+                else:
+                    travel_start = ''
 
+                if len(exception_end4.get()) > 0:
+                    travel_end = exception_end4.get()
+                else:
+                    travel_end = ''
 
+                ex_code_4 =  str(exception_codes4.get()).strip()
+                ex_code_4_origin = ex_code_4[0]+ex_code_4[1]+ex_code_4[2]
+                ex_code_4_destination = ex_code_4[3]+ex_code_4[4]+ex_code_4[5]
+                ex_code_4_days = str(exception_days4.get())
+       
+                total_exceptions_4 = serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                total_exceptions_list.append(total_exceptions_4[0])
 
-        if getMyFirstDay(1) == getMySecondDay(1, 21):
-            print("Coming Tuesday From GIVEN DATE: ",returnMyActualDateOne(1))
-            print("Two Weeks After GIVEN DATE: ",returnMyActualDateTwo(1, 21)) # 21 = 2 weeks span
-            calendar_start = str(returnMyActualDateOne(1))
-            calendar_end = str(returnMyActualDateTwo(1, 21))
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
+                print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end)
         else:
-            print("Coming TUESDAY From GIVEN DATE: ",returnMyActualDateOne(1))
-            print("One Week After GIVEN DATE: ",returnMyActualDateTwo(1, 14)) # 14 = 1 week span
-            calendar_start = str(returnMyActualDateOne(1))
-            calendar_end = str(returnMyActualDateTwo(1, 14))
+            total_exceptions_list = []
+
+        print total_exceptions_list
 
 
-        pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-        pass_UpperStartDate = parseDates(getTravelStart("Within Alaska"))
-        pass_UpperEndDate = parseDates(getTravelEnd("Within Alaska"))
-        pass_LowerStartDate = parseDates(getTravelStart("To U.S."))
-        pass_LowerEndDate = parseDates(getTravelEnd("To U.S."))
+        if len(hawaiiFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "HAWAII: "+str(len(hawaiiFares("AS", total_exceptions_list)))
+            print hawaiiFares("AS", total_exceptions_list)
+            awardSaleDealSet(hawaiiFares("AS", total_exceptions_list),pass_AdvancePurchase,"hawaii")
+
+        if len(mexicoFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "MEXICO: "+str(len(mexicoFares("AS", total_exceptions_list)))
+            print mexicoFares("AS", total_exceptions_list)
+            awardSaleDealSet(mexicoFares("AS", total_exceptions_list),pass_AdvancePurchase,"mexico")
+
+        if len(costaricaFares("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "COSTA RICA: "+str(len(costaricaFares("AS", total_exceptions_list)))
+            print costaricaFares("AS", total_exceptions_list)
+            awardSaleDealSet(costaricaFares("AS", total_exceptions_list),pass_AdvancePurchase,"costarica")
+
+        # if len(floridaFares("AS", total_exceptions_list)) > 0:
+        #     pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+        #     print "FLORIDA: "+str(len(floridaFares("AS", total_exceptions_list)))
+        #     print floridaFares("AS", total_exceptions_list)
+        #     alaskaDealSet(floridaFares("AS", total_exceptions_list),pass_AdvancePurchase,"florida")
+
+        if len(allOtherRows("AS", total_exceptions_list)) > 0:
+            pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+            print "ALL OTHERS: "+str(len(allOtherRows("AS", total_exceptions_list)))
+            print allOtherRows("AS", total_exceptions_list)
+            awardSaleDealSet(allOtherRows("AS", total_exceptions_list),pass_AdvancePurchase,"others")
+        
 
 
-        if len(getClub49Fares("C9", 'upper')) > 0:
-            print("UPPER: "+str(len(getClub49Fares("C9", 'upper'))))
-            print(getClub49Fares("C9", 'upper'))
-            genericClub49DealSet(getClub49Fares("C9", 'upper'),pass_AdvancePurchase,pass_UpperStartDate,pass_UpperEndDate,"upper",calendar_start,calendar_end)
-
-
-        if len(getClub49Fares("C9", 'lower')) > 0:
-            print("LOWER: "+str(len(getClub49Fares("C9", 'lower'))))
-            print(getClub49Fares("C9", 'lower'))
-            genericClub49DealSet(getClub49Fares("C9", 'lower'),pass_AdvancePurchase,pass_LowerStartDate,pass_LowerEndDate,"lower",calendar_start,calendar_end)
-            #tree.write("\\\\seavvfile1\\Market_SAIntMktg\\_Offers\\5. In Work\\AK_Weekly Sales\\temp\\temp-xml.xml")
 
 
 
 
 
-    tree.write("club49.xml")
+    tree.write("awards.xml")
 
 
 fileBtn.configure(command=getfile)

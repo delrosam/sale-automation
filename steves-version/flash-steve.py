@@ -1,13 +1,13 @@
-from Tkinter import *
-import tkFileDialog
+from tkinter import *
+from tkinter import filedialog
+from tkinter import messagebox
 import os
 import xlrd
 import json, ast, os, string, random, urllib
 import xml.etree.cElementTree as ET
 import datetime
 import dateparser
-import tkMessageBox
- 
+
 
 
 window = Tk()
@@ -16,6 +16,7 @@ imgLb1 = Label (window, image = img)
 browseLabel = Label (window, width=30)
 fileBtn = Button (window, padx=10, pady=20)
 marnel = StringVar()
+
 except_1_variable = StringVar()
 except_2_variable = StringVar()
 except_3_variable = StringVar()
@@ -321,7 +322,7 @@ def getfile() :
     #/Users/mmangruban/Desktop/github/tkinter-gui.py/data-to-read
     #//seavvfile1/Market_SAIntMktg/_Offers/5. In Work/WeeklyFlightDeals/temp/testing
     #window.fileName =  tkFileDialog.askopenfilename(initialdir = wrkdirectory,title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
-    window.fileName =  tkFileDialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
+    window.fileName =  filedialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
     #window.fileName = tkFileDialog.askopenfilename(filetypes = (("Excel files", "*.xlsx"), ("All files", "*.*")))
     path, filename = os.path.split(window.fileName)
     if len(window.fileName) > 0:
@@ -372,8 +373,8 @@ def find_two_tuesday(d, weekday, span):
 
 
 def automate() :
-    print window.fileName
-    print marnel.get()
+    print(window.fileName)
+    print(marnel.get())
     runBtn.configure(state = DISABLED)
     resBtn.configure(state=NORMAL)
 
@@ -544,7 +545,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_year = str(parsed_date)
         my_year = my_year.split("-",1)[0]
-        print my_year
+        print(my_year)
         return int(my_year)
 
 
@@ -554,7 +555,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_month = str(parsed_date)
         my_month = my_month.split("-",2)[1]
-        print my_month
+        print(my_month)
         return int(my_month)
 
 
@@ -563,7 +564,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_day = str(parsed_date)
         my_day = my_day.split("-",3)[2]
-        print my_day
+        print(my_day)
         return int(my_day)
 
 
@@ -588,7 +589,6 @@ def automate() :
     def getStringCoordinates(string_to_search_for):
         for row_index in xrange(1, sheet_one.nrows):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
-                #print row_index+1
                 return row_index+1
             
 
@@ -596,9 +596,6 @@ def automate() :
         for row_index in xrange(1, getStringCoordinates(string_to_search_for)):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
-                    #print string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
-                    #return parseDates(sheet_one.cell(row_index, 1).value)
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number
 
@@ -607,9 +604,6 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Travel Start:"), getStringCoordinates("Complete Travel By:")):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
-                    #print string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
-                    #return parseDates(sheet_one.cell(row_index, 1).value)
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number
 
@@ -618,9 +612,6 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Complete Travel By:"), getStringCoordinates("Advance Purchase:")):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
-                    #print string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
-                    #return parseDates(sheet_one.cell(row_index, 1).value)
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number                
 
@@ -631,7 +622,6 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Blackouts:"), getStringCoordinates("Service Exceptions:")):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+sheet_one.cell(row_index, 1).value
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number   
 
@@ -656,7 +646,6 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Advance Purchase:")+1, 53):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+sheet_one.cell(row_index, 1).value
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number        
 
@@ -850,8 +839,6 @@ def automate() :
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
-        #print ast.literal_eval(json.dumps(my_fares))
-        #returns list
         return my_fares
 
     
@@ -1053,10 +1040,10 @@ def automate() :
                 if total_exceptions_1:
                     total_exceptions_list.append(total_exceptions_1[0])
                 else:
-                    print exception_codes1.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes1.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)))
-                print serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
+                print("EXCEPTION ONE: "+str(len(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination))))
+                print(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination))
                 serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_1_origin, ex_code_1_destination),pass_AdvancePurchase,ex_code_1_origin,ex_code_1_destination,ex_code_1_days,travel_start,travel_end, except_1_variable.get())
 
@@ -1082,10 +1069,10 @@ def automate() :
                 if total_exceptions_2:
                     total_exceptions_list.append(total_exceptions_2[0])
                 else:
-                    print exception_codes2.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes2.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)))
-                print serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
+                print("EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination))))
+                print(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination))
                 serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_2_origin, ex_code_2_destination),pass_AdvancePurchase,ex_code_2_origin,ex_code_2_destination,ex_code_2_days,travel_start,travel_end, except_2_variable.get())
 
@@ -1110,10 +1097,10 @@ def automate() :
                 if total_exceptions_3:
                     total_exceptions_list.append(total_exceptions_3[0])
                 else:
-                    print exception_codes3.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes3.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION THREE: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
-                print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
+                print("EXCEPTION THREE: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination))))
+                print(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination))
                 serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end, except_3_variable.get())
 
@@ -1138,10 +1125,10 @@ def automate() :
                 if total_exceptions_4:
                     total_exceptions_list.append(total_exceptions_4[0])
                 else:
-                    print exception_codes4.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes4.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION FOUR: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
-                print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
+                print("EXCEPTION FOUR: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination))))
+                print(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination))
                 serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end, except_4_variable.get())
 
@@ -1166,10 +1153,10 @@ def automate() :
                 if total_exceptions_5:
                     total_exceptions_list.append(total_exceptions_5[0])
                 else:
-                    print exception_codes5.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes5.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION FIVE: "+str(len(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)))
-                print serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)
+                print("EXCEPTION FIVE: "+str(len(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination))))
+                print(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination))
                 serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination),pass_AdvancePurchase,ex_code_5_origin,ex_code_5_destination,ex_code_5_days,travel_start,travel_end, except_5_variable.get())
 
@@ -1194,10 +1181,10 @@ def automate() :
                 if total_exceptions_6:
                     total_exceptions_list.append(total_exceptions_6[0])
                 else:
-                    print exception_codes6.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes6.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION SIX: "+str(len(serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination)))
-                print serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination)
+                print("EXCEPTION SIX: "+str(len(serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination))))
+                print(serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination))
                 serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_6_origin, ex_code_6_destination),pass_AdvancePurchase,ex_code_6_origin,ex_code_6_destination,ex_code_6_days,travel_start,travel_end, except_6_variable.get())
 
@@ -1222,10 +1209,10 @@ def automate() :
                 if total_exceptions_7:
                     total_exceptions_list.append(total_exceptions_7[0])
                 else:
-                    print exception_codes7.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes7.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION SEVEN: "+str(len(serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination)))
-                print serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination)
+                print("EXCEPTION SEVEN: "+str(len(serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination))))
+                print(serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination))
                 serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_7_origin, ex_code_7_destination),pass_AdvancePurchase,ex_code_7_origin,ex_code_7_destination,ex_code_7_days,travel_start,travel_end, except_7_variable.get())
 
@@ -1250,10 +1237,10 @@ def automate() :
                 if total_exceptions_8:
                     total_exceptions_list.append(total_exceptions_8[0])
                 else:
-                    print exception_codes8.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes8.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION EIGHT: "+str(len(serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination)))
-                print serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination)
+                print("EXCEPTION EIGHT: "+str(len(serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination))))
+                print(serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination))
                 serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_8_origin, ex_code_8_destination),pass_AdvancePurchase,ex_code_8_origin,ex_code_8_destination,ex_code_8_days,travel_start,travel_end, except_8_variable.get())
 
@@ -1278,10 +1265,10 @@ def automate() :
                 if total_exceptions_9:
                     total_exceptions_list.append(total_exceptions_9[0])
                 else:
-                    print exception_codes9.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes9.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION NINE: "+str(len(serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination)))
-                print serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination)
+                print("EXCEPTION NINE: "+str(len(serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination))))
+                print(serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination))
                 serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_9_origin, ex_code_9_destination),pass_AdvancePurchase,ex_code_9_origin,ex_code_9_destination,ex_code_9_days,travel_start,travel_end, except_9_variable.get())
 
@@ -1306,10 +1293,10 @@ def automate() :
                 if total_exceptions_10:
                     total_exceptions_list.append(total_exceptions_10[0])
                 else:
-                    print exception_codes10.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes10.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION TEN: "+str(len(serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination)))
-                print serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination)
+                print("EXCEPTION TEN: "+str(len(serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination))))
+                print(serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination))
                 serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_10_origin, ex_code_10_destination),pass_AdvancePurchase,ex_code_10_origin,ex_code_10_destination,ex_code_10_days,travel_start,travel_end, except_10_variable.get())
 
@@ -1334,10 +1321,10 @@ def automate() :
                 if total_exceptions_11:
                     total_exceptions_list.append(total_exceptions_11[0])
                 else:
-                    print exception_codes11.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes11.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION ELEVEN: "+str(len(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination)))
-                print serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination)
+                print("EXCEPTION ELEVEN: "+str(len(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination))))
+                print(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination))
                 serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_11_origin, ex_code_11_destination),pass_AdvancePurchase,ex_code_11_origin,ex_code_11_destination,ex_code_11_days,travel_start,travel_end, except_11_variable.get())
 
@@ -1362,10 +1349,10 @@ def automate() :
                 if total_exceptions_12:
                     total_exceptions_list.append(total_exceptions_12[0])
                 else:
-                    print exception_codes12.get()+' fares do not exist in this spreadsheet.'
+                    print(exception_codes12.get()+' fares do not exist in this spreadsheet.')
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION TWELVE: "+str(len(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination)))
-                print serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination)
+                print("EXCEPTION TWELVE: "+str(len(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination))))
+                print(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination))
                 serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_12_origin, ex_code_12_destination),pass_AdvancePurchase,ex_code_12_origin,ex_code_12_destination,ex_code_12_days,travel_start,travel_end, except_12_variable.get())
 
@@ -1373,42 +1360,42 @@ def automate() :
         else:
             total_exceptions_list = []
 
-        print total_exceptions_list
+        print(total_exceptions_list)
 
         if len(alaskaToFromHawaiiFares("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "ALASKA TO/FROM HAWAII: "+str(len(alaskaToFromHawaiiFares("AS", total_exceptions_list)))
-            print alaskaToFromHawaiiFares("AS", total_exceptions_list)
+            print("ALASKA TO/FROM HAWAII: "+str(len(alaskaToFromHawaiiFares("AS", total_exceptions_list))))
+            print(alaskaToFromHawaiiFares("AS", total_exceptions_list))
             flashDealSet(alaskaToFromHawaiiFares("AS", total_exceptions_list),pass_AdvancePurchase,"alaskahawaii")
 
         if len(hawaiiFares("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "HAWAII: "+str(len(hawaiiFares("AS", total_exceptions_list)))
-            print hawaiiFares("AS", total_exceptions_list)
+            print("HAWAII: "+str(len(hawaiiFares("AS", total_exceptions_list))))
+            print(hawaiiFares("AS", total_exceptions_list))
             flashDealSet(hawaiiFares("AS", total_exceptions_list),pass_AdvancePurchase,"hawaii")
 
         if len(mexicoFares("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "MEXICO: "+str(len(mexicoFares("AS", total_exceptions_list)))
-            print mexicoFares("AS", total_exceptions_list)
+            print("MEXICO: "+str(len(mexicoFares("AS", total_exceptions_list))))
+            print(mexicoFares("AS", total_exceptions_list))
             flashDealSet(mexicoFares("AS", total_exceptions_list),pass_AdvancePurchase,"mexico")
 
         if len(costaricaFares("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "COSTA RICA: "+str(len(costaricaFares("AS", total_exceptions_list)))
-            print costaricaFares("AS", total_exceptions_list)
+            print("COSTA RICA: "+str(len(costaricaFares("AS", total_exceptions_list))))
+            print(costaricaFares("AS", total_exceptions_list))
             flashDealSet(costaricaFares("AS", total_exceptions_list),pass_AdvancePurchase,"costarica")
 
         if len(floridaFares("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "FLORIDA: "+str(len(floridaFares("AS", total_exceptions_list)))
-            print floridaFares("AS", total_exceptions_list)
+            print("FLORIDA: "+str(len(floridaFares("AS", total_exceptions_list))))
+            print(floridaFares("AS", total_exceptions_list))
             flashDealSet(floridaFares("AS", total_exceptions_list),pass_AdvancePurchase,"florida")
 
         if len(allOtherRows("AS", total_exceptions_list)) > 0:
             pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-            print "ALL OTHERS: "+str(len(allOtherRows("AS", total_exceptions_list)))
-            print allOtherRows("AS", total_exceptions_list)
+            print("ALL OTHERS: "+str(len(allOtherRows("AS", total_exceptions_list))))
+            print(allOtherRows("AS", total_exceptions_list))
             flashDealSet(allOtherRows("AS", total_exceptions_list),pass_AdvancePurchase,"others")
 
 
