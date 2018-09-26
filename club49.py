@@ -1,12 +1,13 @@
-from Tkinter import *
-import tkFileDialog
+from tkinter import *
+from tkinter import filedialog
 import os
 import xlrd
 import json, ast, os, string, random, urllib
 import xml.etree.cElementTree as ET
 import datetime
 import dateparser
-import tkMessageBox
+#import tkMessageBox
+from tkinter import messagebox
 #comment here
 
 
@@ -149,7 +150,7 @@ def getfile() :
     #/Users/mmangruban/Desktop/github/tkinter-gui.py/data-to-read
     #//seavvfile1/Market_SAIntMktg/_Offers/5. In Work/WeeklyFlightDeals/temp/testing
     #window.fileName =  tkFileDialog.askopenfilename(initialdir = wrkdirectory,title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
-    window.fileName =  tkFileDialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
+    window.fileName =  filedialog.askopenfilename(title = "Select file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
     #window.fileName = tkFileDialog.askopenfilename(filetypes = (("Excel files", "*.xlsx"), ("All files", "*.*")))
     path, filename = os.path.split(window.fileName)
     if len(window.fileName) > 0:
@@ -200,8 +201,8 @@ def find_two_tuesday(d, weekday, span):
 
 
 def automate() :
-    print window.fileName
-    print marnel.get()
+    print(window.fileName)
+    print(marnel.get())
     runBtn.configure(state = DISABLED)
     resBtn.configure(state=NORMAL)
 
@@ -372,7 +373,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_year = str(parsed_date)
         my_year = my_year.split("-",1)[0]
-        print my_year
+        print(my_year)
         return int(my_year)
 
 
@@ -382,7 +383,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_month = str(parsed_date)
         my_month = my_month.split("-",2)[1]
-        print my_month
+        print(my_month)
         return int(my_month)
 
 
@@ -391,7 +392,7 @@ def automate() :
         parsed_date = datetime.date(value_int[0], value_int[1], value_int[2])
         my_day = str(parsed_date)
         my_day = my_day.split("-",3)[2]
-        print my_day
+        print(my_day)
         return int(my_day)
 
 
@@ -416,7 +417,7 @@ def automate() :
     def getStringCoordinates(string_to_search_for):
         for row_index in xrange(1, sheet_one.nrows):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
-                #print row_index+1
+                #print(row_index+1
                 return row_index+1
             
 
@@ -424,8 +425,8 @@ def automate() :
         for row_index in xrange(1, getStringCoordinates(string_to_search_for)):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
-                    #print string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
+                    #print(string_to_search_for+": "+str(parseDates(sheet_one.cell(row_index, 1).value))
+                    #print(string_to_search_for+": "+str(dateInEnglish(sheet_one.cell(row_index, 1).value))
                     #return parseDates(sheet_one.cell(row_index, 1).value)
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number
@@ -452,7 +453,7 @@ def automate() :
         for row_index in xrange(getStringCoordinates("Advance Purchase:")+1, 53):
             if sheet_one.cell(row_index, 0).value.strip() == string_to_search_for:
                 if sheet_one.cell(row_index, 1).value:
-                    #print string_to_search_for+": "+sheet_one.cell(row_index, 1).value
+                    #print(string_to_search_for+": "+sheet_one.cell(row_index, 1).value
                     pulled_date_number = sheet_one.cell(row_index, 1).value
                     return pulled_date_number        
 
@@ -653,7 +654,7 @@ def automate() :
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
-        #print ast.literal_eval(json.dumps(my_fares))
+        #print(ast.literal_eval(json.dumps(my_fares))
         #returns list
         return my_fares
 
@@ -671,7 +672,7 @@ def automate() :
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
-        #print ast.literal_eval(json.dumps(my_fares))
+        #print(ast.literal_eval(json.dumps(my_fares))
         #returns list
         return my_fares
 
@@ -716,7 +717,7 @@ def automate() :
         #This for loop will create each Row and Cell of XML for each item/dictionary in the list
         #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
         for a in pullFaresAndSaveInList(which_rows):
-            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+            # print(a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
@@ -770,7 +771,7 @@ def automate() :
         #This for loop will create each Row and Cell of XML for each item/dictionary in the list
         #pullFaresAndSaveInList(1, discoverSeparator()) RETURNS list of dictionaries
         for a in pullFaresAndSaveInList(which_rows):
-            # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
+            # print(a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
@@ -813,7 +814,7 @@ def automate() :
             next_tuesday = str(next_tuesday)
             next_tuesday = next_tuesday.split(" ",1)[0]
             a1, b1, c1 = next_tuesday.split("-")
-            print "Month of tuesday coming up:",b1
+            print("Month of tuesday coming up:",b1)
             #getMonth(getTravelStart("Within Alaska"))
             #next_tuesday = next_tuesday.replace("-","")
             return b1
@@ -824,7 +825,7 @@ def automate() :
             tuesday_after = str(tuesday_after)
             tuesday_after = tuesday_after.split(" ",1)[0]
             a2, b2, c2 = tuesday_after.split("-")
-            print "Month of 2 weeks in future:",b2
+            print("Month of 2 weeks in future:",b2)
             #getMonth(getTravelStart("Within Alaska"))
             #tuesday_after = tuesday_after.replace("-","")
             return b2
@@ -832,13 +833,13 @@ def automate() :
 
 
         if getMyFirstDay(1) == getMySecondDay(1, 21):
-            print "Coming Tuesday From GIVEN DATE: ",returnMyActualDateOne(1)
-            print "Two Weeks After GIVEN DATE: ",returnMyActualDateTwo(1, 21) # 21 = 2 weeks span
+            print("Coming Tuesday From GIVEN DATE: ",returnMyActualDateOne(1))
+            print("Two Weeks After GIVEN DATE: ",returnMyActualDateTwo(1, 21)) # 21 = 2 weeks span
             calendar_start = str(returnMyActualDateOne(1))
             calendar_end = str(returnMyActualDateTwo(1, 21))
         else:
-            print "Coming TUESDAY From GIVEN DATE: ",returnMyActualDateOne(1)
-            print "One Week After GIVEN DATE: ",returnMyActualDateTwo(1, 14) # 14 = 1 week span
+            print("Coming TUESDAY From GIVEN DATE: ",returnMyActualDateOne(1))
+            print("One Week After GIVEN DATE: ",returnMyActualDateTwo(1, 14)) # 14 = 1 week span
             calendar_start = str(returnMyActualDateOne(1))
             calendar_end = str(returnMyActualDateTwo(1, 14))
 
@@ -851,14 +852,14 @@ def automate() :
 
 
         if len(getClub49Fares("C9", 'upper')) > 0:
-            print "UPPER: "+str(len(getClub49Fares("C9", 'upper')))
-            print getClub49Fares("C9", 'upper')
+            print("UPPER: "+str(len(getClub49Fares("C9", 'upper'))))
+            print(getClub49Fares("C9", 'upper'))
             genericClub49DealSet(getClub49Fares("C9", 'upper'),pass_AdvancePurchase,pass_UpperStartDate,pass_UpperEndDate,"upper",calendar_start,calendar_end)
 
 
         if len(getClub49Fares("C9", 'lower')) > 0:
-            print "LOWER: "+str(len(getClub49Fares("C9", 'lower')))
-            print getClub49Fares("C9", 'lower')
+            print("LOWER: "+str(len(getClub49Fares("C9", 'lower'))))
+            print(getClub49Fares("C9", 'lower'))
             genericClub49DealSet(getClub49Fares("C9", 'lower'),pass_AdvancePurchase,pass_LowerStartDate,pass_LowerEndDate,"lower",calendar_start,calendar_end)
             #tree.write("\\\\seavvfile1\\Market_SAIntMktg\\_Offers\\5. In Work\\AK_Weekly Sales\\temp\\temp-xml.xml")
 
