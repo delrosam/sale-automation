@@ -16,6 +16,8 @@ imgLb1 = Label (window, image = img)
 browseLabel = Label (window, width=30)
 fileBtn = Button (window, padx=10, pady=20)
 marnel = StringVar()
+
+
 except_1_variable = StringVar()
 except_2_variable = StringVar()
 except_3_variable = StringVar()
