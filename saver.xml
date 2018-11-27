@@ -1,3 +1,1903 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlightDeals xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+   <DealSet from="2018-11-29T00:00:01" to="2018-12-03T23:59:59">
+      <DealInfo code="20181129_SAVER-HI" dealType="Saver" url="">
+         <TravelDates enddate="2019-01-15T23:59:59" startdate="2019-01-08T00:00:01" />
+         <DealTitle />
+         <DealDescrip><![CDATA[Purchase by December 3, 2018.]]></DealDescrip>
+         <terms><![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on December 3, 2018, and at least 21 days prior to departure. Travel to and from Hawaii is valid Mondays through Thursdays from January 8, 2019 - January 30, 2019. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]></terms>
+      </DealInfo>
+      <Fares>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>KOA</Data>
+            </Cell>
+            <Cell>
+               <Data>Kona</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>KOA</Data>
+            </Cell>
+            <Cell>
+               <Data>Kona</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>KOA</Data>
+            </Cell>
+            <Cell>
+               <Data>Kona</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>KOA</Data>
+            </Cell>
+            <Cell>
+               <Data>Kona</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>LIH</Data>
+            </Cell>
+            <Cell>
+               <Data>Kauai</Data>
+            </Cell>
+            <Cell>
+               <Data>204</Data>
+            </Cell>
+         </Row>
+      </Fares>
+   </DealSet>
+   <DealSet from="2018-11-29T00:00:01" to="2018-12-03T23:59:59">
+      <DealInfo code="20181129_SAVER-MX" dealType="Saver" url="">
+         <TravelDates enddate="2019-01-15T23:59:59" startdate="2019-01-08T00:00:01" />
+         <DealTitle />
+         <DealDescrip><![CDATA[Purchase by December 3, 2018.]]></DealDescrip>
+         <terms><![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on December 3, 2018, and at least 21 days prior to departure. Travel to Mexico is valid Sundays through Wednesdays from January 8, 2019 - January 30, 2019. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]></terms>
+      </DealInfo>
+      <Fares>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>PVR</Data>
+            </Cell>
+            <Cell>
+               <Data>Puerto Vallarta</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SNA</Data>
+            </Cell>
+            <Cell>
+               <Data>Orange County</Data>
+            </Cell>
+            <Cell>
+               <Data>PVR</Data>
+            </Cell>
+            <Cell>
+               <Data>Puerto Vallarta</Data>
+            </Cell>
+            <Cell>
+               <Data>133</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>MZT</Data>
+            </Cell>
+            <Cell>
+               <Data>Mazatlan</Data>
+            </Cell>
+            <Cell>
+               <Data>139</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>MZT</Data>
+            </Cell>
+            <Cell>
+               <Data>Mazatlan</Data>
+            </Cell>
+            <Cell>
+               <Data>154</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>PVR</Data>
+            </Cell>
+            <Cell>
+               <Data>Puerto Vallarta</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SNA</Data>
+            </Cell>
+            <Cell>
+               <Data>Orange County</Data>
+            </Cell>
+            <Cell>
+               <Data>PVR</Data>
+            </Cell>
+            <Cell>
+               <Data>Puerto Vallarta</Data>
+            </Cell>
+            <Cell>
+               <Data>163</Data>
+            </Cell>
+         </Row>
+      </Fares>
+   </DealSet>
+   <DealSet from="2018-11-29T00:00:01" to="2018-12-03T23:59:59">
+      <DealInfo code="20181129_SAVER" dealType="Saver" url="">
+         <TravelDates enddate="2019-01-15T23:59:59" startdate="2019-01-08T00:00:01" />
+         <DealTitle />
+         <DealDescrip><![CDATA[Purchase by December 3, 2018.]]></DealDescrip>
+         <terms><![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on December 3, 2018, and at least 21 days prior to departure. Travel is valid Tuesdays, Wednesdays, and Saturdays from January 8, 2019 - January 30, 2019. Bag fees <a href="#terms">may apply</a> for <a href="/content/travel-info/policies/baggage-checked">checked baggage</a>. See <a href="#terms">bottom of page</a> for full terms and conditions.]]></terms>
+      </DealInfo>
+      <Fares>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAS</Data>
+            </Cell>
+            <Cell>
+               <Data>Las Vegas</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>LAS</Data>
+            </Cell>
+            <Cell>
+               <Data>Las Vegas</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>49</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>BOI</Data>
+            </Cell>
+            <Cell>
+               <Data>Boise</Data>
+            </Cell>
+            <Cell>
+               <Data>RNO</Data>
+            </Cell>
+            <Cell>
+               <Data>Reno</Data>
+            </Cell>
+            <Cell>
+               <Data>54</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>RNO</Data>
+            </Cell>
+            <Cell>
+               <Data>Reno</Data>
+            </Cell>
+            <Cell>
+               <Data>BOI</Data>
+            </Cell>
+            <Cell>
+               <Data>Boise</Data>
+            </Cell>
+            <Cell>
+               <Data>59</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>BOI</Data>
+            </Cell>
+            <Cell>
+               <Data>Boise</Data>
+            </Cell>
+            <Cell>
+               <Data>RNO</Data>
+            </Cell>
+            <Cell>
+               <Data>Reno</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>MRY</Data>
+            </Cell>
+            <Cell>
+               <Data>Monterey</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PHX</Data>
+            </Cell>
+            <Cell>
+               <Data>Phoenix</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>PHX</Data>
+            </Cell>
+            <Cell>
+               <Data>Phoenix</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>MRY</Data>
+            </Cell>
+            <Cell>
+               <Data>Monterey</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>69</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>RNO</Data>
+            </Cell>
+            <Cell>
+               <Data>Reno</Data>
+            </Cell>
+            <Cell>
+               <Data>BOI</Data>
+            </Cell>
+            <Cell>
+               <Data>Boise</Data>
+            </Cell>
+            <Cell>
+               <Data>74</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>FAT</Data>
+            </Cell>
+            <Cell>
+               <Data>Fresno</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAS</Data>
+            </Cell>
+            <Cell>
+               <Data>Las Vegas</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>LAS</Data>
+            </Cell>
+            <Cell>
+               <Data>Las Vegas</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>FAT</Data>
+            </Cell>
+            <Cell>
+               <Data>Fresno</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>79</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>ANC</Data>
+            </Cell>
+            <Cell>
+               <Data>Anchorage</Data>
+            </Cell>
+            <Cell>
+               <Data>FAI</Data>
+            </Cell>
+            <Cell>
+               <Data>Fairbanks</Data>
+            </Cell>
+            <Cell>
+               <Data>82</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>FAI</Data>
+            </Cell>
+            <Cell>
+               <Data>Fairbanks</Data>
+            </Cell>
+            <Cell>
+               <Data>ANC</Data>
+            </Cell>
+            <Cell>
+               <Data>Anchorage</Data>
+            </Cell>
+            <Cell>
+               <Data>84</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>89</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>MRY</Data>
+            </Cell>
+            <Cell>
+               <Data>Monterey</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PHX</Data>
+            </Cell>
+            <Cell>
+               <Data>Phoenix</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>PHX</Data>
+            </Cell>
+            <Cell>
+               <Data>Phoenix</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>RDU</Data>
+            </Cell>
+            <Cell>
+               <Data>Raleigh-Durham</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>MRY</Data>
+            </Cell>
+            <Cell>
+               <Data>Monterey</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>RDU</Data>
+            </Cell>
+            <Cell>
+               <Data>Raleigh-Durham</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>99</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>FAT</Data>
+            </Cell>
+            <Cell>
+               <Data>Fresno</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>109</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>109</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>FAT</Data>
+            </Cell>
+            <Cell>
+               <Data>Fresno</Data>
+            </Cell>
+            <Cell>
+               <Data>109</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>109</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>114</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>114</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>IND</Data>
+            </Cell>
+            <Cell>
+               <Data>Indianapolis</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>EWR</Data>
+            </Cell>
+            <Cell>
+               <Data>New York - Newark</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SAN</Data>
+            </Cell>
+            <Cell>
+               <Data>San Diego</Data>
+            </Cell>
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>MCI</Data>
+            </Cell>
+            <Cell>
+               <Data>Kansas City</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>EWR</Data>
+            </Cell>
+            <Cell>
+               <Data>New York - Newark</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>IND</Data>
+            </Cell>
+            <Cell>
+               <Data>Indianapolis</Data>
+            </Cell>
+            <Cell>
+               <Data>119</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>FAI</Data>
+            </Cell>
+            <Cell>
+               <Data>Fairbanks</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>123</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>BWI</Data>
+            </Cell>
+            <Cell>
+               <Data>Baltimore</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>LAX</Data>
+            </Cell>
+            <Cell>
+               <Data>Los Angeles</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>RDU</Data>
+            </Cell>
+            <Cell>
+               <Data>Raleigh-Durham</Data>
+            </Cell>
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>PHL</Data>
+            </Cell>
+            <Cell>
+               <Data>Philadelphia</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SFO</Data>
+            </Cell>
+            <Cell>
+               <Data>San Francisco</Data>
+            </Cell>
+            <Cell>
+               <Data>RDU</Data>
+            </Cell>
+            <Cell>
+               <Data>Raleigh-Durham</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Saver">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>BWI</Data>
+            </Cell>
+            <Cell>
+               <Data>Baltimore</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>129</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>FAI</Data>
+            </Cell>
+            <Cell>
+               <Data>Fairbanks</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>138</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>PSP</Data>
+            </Cell>
+            <Cell>
+               <Data>Palm Springs</Data>
+            </Cell>
+            <Cell>
+               <Data>139</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>144</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>TUS</Data>
+            </Cell>
+            <Cell>
+               <Data>Tucson</Data>
+            </Cell>
+            <Cell>
+               <Data>PDX</Data>
+            </Cell>
+            <Cell>
+               <Data>Portland</Data>
+            </Cell>
+            <Cell>
+               <Data>144</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>IND</Data>
+            </Cell>
+            <Cell>
+               <Data>Indianapolis</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>149</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>EWR</Data>
+            </Cell>
+            <Cell>
+               <Data>New York - Newark</Data>
+            </Cell>
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>149</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SJC</Data>
+            </Cell>
+            <Cell>
+               <Data>San Jose</Data>
+            </Cell>
+            <Cell>
+               <Data>EWR</Data>
+            </Cell>
+            <Cell>
+               <Data>New York - Newark</Data>
+            </Cell>
+            <Cell>
+               <Data>149</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>IND</Data>
+            </Cell>
+            <Cell>
+               <Data>Indianapolis</Data>
+            </Cell>
+            <Cell>
+               <Data>149</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>BWI</Data>
+            </Cell>
+            <Cell>
+               <Data>Baltimore</Data>
+            </Cell>
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+         <Row fareType="Main">
+            <Cell>
+               <Data>SEA</Data>
+            </Cell>
+            <Cell>
+               <Data>Seattle</Data>
+            </Cell>
+            <Cell>
+               <Data>BWI</Data>
+            </Cell>
+            <Cell>
+               <Data>Baltimore</Data>
+            </Cell>
+            <Cell>
+               <Data>159</Data>
+            </Cell>
+         </Row>
+      </Fares>
+   </DealSet>
 </FlightDeals>

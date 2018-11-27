@@ -981,12 +981,12 @@ def automate() :
     #This is pulling all fares with the green background and creates then returns a list of dictionaries
     def pullFaresAndSaveInList(list_being_passed):
         #This sets the name of all keys for the list of dictionary  
-        keys = ["oCode","oCity","dCode","dCity","fare"]
+        keys = ["oCode","oCity","dCode","dCity","fare","faretype"]
         my_dictionary_list = []
         # this selects how many rows to read
         for row in range(1, sheet.nrows):
             if row in list_being_passed:
-                my_dictionary_list.append({keys[0]: sheet.cell(row, 7).value,keys[1]: sheet.cell(row, 8).value,keys[2]: sheet.cell(row, 9).value,keys[3]: sheet.cell(row, 10).value,keys[4]: int(sheet.cell(row, 11).value)})
+                my_dictionary_list.append({keys[0]: sheet.cell(row, 8).value,keys[1]: sheet.cell(row, 9).value,keys[2]: sheet.cell(row, 10).value,keys[3]: sheet.cell(row, 11).value,keys[4]: int(sheet.cell(row, 12).value),keys[5]: sheet.cell(row, 13).value})
         # saves the list into a variable
         #my_fares = sorted(my_dictionary_list, key=itemgetter('fare'), key=itemgetter('oCity'), key=itemgetter('dCity'))
         my_fares = sorted(my_dictionary_list, key=sortkeypicker(['fare', 'oCity', 'dCity']))
@@ -1000,7 +1000,7 @@ def automate() :
 
 
 
-    tree = ET.parse('flash.xml')
+    tree = ET.parse('the-saver.xml')
     root = tree.getroot()  # now get the root
     root.attrib['xmlns:ss']="urn:schemas-microsoft-com:office:spreadsheet"
 
@@ -1016,26 +1016,26 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
-        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
+        dealinfo.attrib['dealType']='Saver' #MileagePlan || Standard || Saver
         makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
 
         if upper_or_lower == 'alaskahawaii':
-            dealinfo.attrib['code']=makecode+'_SALE_AS_AKHI'
+            dealinfo.attrib['code']=makecode+'_SAVER_AKHI'
 
         if upper_or_lower == 'hawaii':
-            dealinfo.attrib['code']=makecode+'_SALE_AS-HI'
+            dealinfo.attrib['code']=makecode+'_SAVER-HI'
         
         if upper_or_lower == 'mexico':
-            dealinfo.attrib['code']=makecode+'_SALE_AS-MX'
+            dealinfo.attrib['code']=makecode+'_SAVER-MX'
 
         if upper_or_lower == 'costarica':
-            dealinfo.attrib['code']=makecode+'_SALE_AS-CR'
+            dealinfo.attrib['code']=makecode+'_SAVER-CR'
         
         if upper_or_lower == 'florida':
-            dealinfo.attrib['code']=makecode+'_SALE_AS-FL'
+            dealinfo.attrib['code']=makecode+'_SAVER-FL'
 
         if upper_or_lower == 'others':
-            dealinfo.attrib['code']=makecode+'_SALE_AS'
+            dealinfo.attrib['code']=makecode+'__SAVER'
 
 
 
@@ -1081,7 +1081,7 @@ def automate() :
         for a in pullFaresAndSaveInList(which_rows):
             # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
-            row.set('fareType', "Main") #Awards || Main || Saver
+            row.set('fareType', a['faretype']) #Awards || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
@@ -1105,7 +1105,7 @@ def automate() :
 
         dealinfo = ET.SubElement(dealset, "DealInfo")
         dealinfo.attrib['url']=''
-        dealinfo.attrib['dealType']='Standard' #MileagePlan || Standard || Saver
+        dealinfo.attrib['dealType']='Saver' #MileagePlan || Standard || Saver
         makecode = str(parseDates(getValueToTheRightOfString("Sale Start Date:"))).replace('-', '')
 
         dealinfo.attrib['code']=makecode+'_SALE_AS-'+str(origin_code)+str(destination_code)
@@ -1140,7 +1140,7 @@ def automate() :
         for a in pullFaresAndSaveInList(which_rows):
             # print a['oCode'], a['oCity'], a['dCode'], a['dCity'],a['fare']
             row = ET.SubElement(fares, "Row") #showAsDefault="true"
-            row.set('fareType', "Main") #Awards || Main || Saver
+            row.set('fareType', a['faretype']) #Awards || Main || Saver
             cell = ET.SubElement(row, "Cell")
             ET.SubElement(cell, "Data").text = a['oCode']
             cell = ET.SubElement(row, "Cell")
@@ -1779,7 +1779,7 @@ def automate() :
 
 
 
-    tree.write("flash.xml")
+    tree.write("the-saver.xml")
 
 
 fileBtn.configure(command=getfile)

@@ -71,6 +71,12 @@ exception_days4 = Entry(window, width=25)
 exception_start4 = Entry(window, width=8)
 exception_end4 = Entry(window, width=8)
 
+exception_codes5 = Entry(window, width=8)
+exception_days5 = Entry(window, width=25)
+exception_start5 = Entry(window, width=8)
+exception_end5 = Entry(window, width=8)
+
+
 
 runBtn = Button (window, padx=10, pady=20)
 resBtn = Button (window, padx=20, pady=20)
@@ -127,6 +133,10 @@ exception_days4.grid(row=14, column=3)
 exception_start4.grid(row=14, column=4)
 exception_end4.grid(row=14, column=5)
 
+exception_codes5.grid(row=15, column=2)
+exception_days5.grid(row=15, column=3)
+exception_start5.grid(row=15, column=4)
+exception_end5.grid(row=15, column=5)
 
 runBtn.grid(row=16, column=2, columnspan = 1)
 resBtn.grid(row=1, column=4, columnspan = 1)
@@ -165,10 +175,12 @@ def reset() :
     exception_codes2.delete(0, 'end')
     exception_codes3.delete(0, 'end')
     exception_codes4.delete(0, 'end')
+    exception_codes5.delete(0, 'end')
     exception_days1.delete(0, 'end')
     exception_days2.delete(0, 'end')
     exception_days3.delete(0, 'end')
     exception_days4.delete(0, 'end')
+    exception_days5.delete(0, 'end')
     fileBtn.configure(state = NORMAL)
     resBtn.configure(state=DISABLED)  
     runBtn.configure(state = DISABLED)
@@ -351,6 +363,7 @@ def automate() :
             'LGA' : 'New York - LaGuardia',
             'IAD' : 'Washington D.C. - Dulles',
             'PIT' : 'Pittsburgh',
+            'PAE' : 'Everett - Paine Field',
         }[y]
 
 
@@ -662,7 +675,7 @@ def automate() :
 
 
 
-    tree = ET.parse('saver-flights.xml')
+    tree = ET.parse('saver.xml')
     root = tree.getroot()  # now get the root
     root.attrib['xmlns:ss']="urn:schemas-microsoft-com:office:spreadsheet"
 
@@ -821,7 +834,7 @@ def automate() :
     if(marnel.get() == 'SaverFare'):
 
         #SERVICE EXCEPTION HANDLER
-        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0:
+        if len(exception_codes1.get()) > 0 or len(exception_codes2.get()) > 0 or len(exception_codes3.get()) > 0 or len(exception_codes4.get()) > 0 or len(exception_codes5.get()) > 0:
             print exception_codes1.get() + exception_days1.get()
             total_exceptions_list = []
             if len(exception_codes1.get()) > 0:
@@ -896,7 +909,7 @@ def automate() :
                 total_exceptions_list.append(total_exceptions_3[0])
 
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
+                print "EXCEPTION THREE: "+str(len(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)))
                 print serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
                 serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_3_origin, ex_code_3_destination),pass_AdvancePurchase,ex_code_3_origin,ex_code_3_destination,ex_code_3_days,travel_start,travel_end)
@@ -922,10 +935,37 @@ def automate() :
                 total_exceptions_list.append(total_exceptions_4[0])
 
                 pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
-                print "EXCEPTION TWO: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
+                print "EXCEPTION FOUR: "+str(len(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)))
                 print serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
                 serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination)
                 exceptionDealSet(serviceExceptionFares("AS", ex_code_4_origin, ex_code_4_destination),pass_AdvancePurchase,ex_code_4_origin,ex_code_4_destination,ex_code_4_days,travel_start,travel_end)
+            
+
+            if len(exception_codes5.get()) > 0:
+                if len(exception_start5.get()) > 0:
+                    travel_start = exception_start5.get()
+                else:
+                    travel_start = ''
+
+                if len(exception_end5.get()) > 0:
+                    travel_end = exception_end5.get()
+                else:
+                    travel_end = ''
+
+                ex_code_5 =  str(exception_codes5.get()).strip()
+                ex_code_5_origin = ex_code_5[0]+ex_code_5[1]+ex_code_5[2]
+                ex_code_5_destination = ex_code_5[3]+ex_code_5[4]+ex_code_5[5]
+                ex_code_5_days = str(exception_days5.get())
+       
+                total_exceptions_5 = serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)
+                total_exceptions_list.append(total_exceptions_5[0])
+
+                pass_AdvancePurchase = getValueToTheRightOfString("Advance Purchase:")
+                print "EXCEPTION FIVE: "+str(len(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)))
+                print serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)
+                serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination)
+                exceptionDealSet(serviceExceptionFares("AS", ex_code_5_origin, ex_code_5_destination),pass_AdvancePurchase,ex_code_5_origin,ex_code_5_destination,ex_code_5_days,travel_start,travel_end)
+
         else:
             total_exceptions_list = []
 
@@ -965,7 +1005,7 @@ def automate() :
 
 
 
-    tree.write("saver-flights.xml")
+    tree.write("saver.xml")
 
 
 fileBtn.configure(command=getfile)
